@@ -1,0 +1,3 @@
+[submodule "iphone/Classes/Libraries/tbxmlex"]
+	path = iphone/Classes/Libraries/tbxmlex
+	url = git@github.com:rafaelsteil/tbxmlex.git
