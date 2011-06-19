@@ -1,5 +1,7 @@
 #import <Foundation/Foundation.h>
 
+void ShowAlert(NSString *title, NSString *message);
+
 // UIView Categegories
 @interface UIView (FrameAditions)
 -(void) setOrigin:(CGPoint) newOrigin;

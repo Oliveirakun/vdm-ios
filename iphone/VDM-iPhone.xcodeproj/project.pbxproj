@@ -26,6 +26,8 @@
 		665EEB9113AE4A38006490A3 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 665EEB8513AE4A38006490A3 /* ASIInputStream.m */; };
 		665EEB9213AE4A38006490A3 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 665EEB8713AE4A38006490A3 /* ASINetworkQueue.m */; };
 		665EEB9313AE4A38006490A3 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 665EEB8A13AE4A38006490A3 /* Reachability.m */; };
+		665EEBE513AE5E2F006490A3 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 665EEBE413AE5E2F006490A3 /* NSString+HTML.m */; };
+		665EEBF113AE5E4F006490A3 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 665EEBEF13AE5E4F006490A3 /* GTMNSString+HTML.m */; };
 		6660A38A13ACEC5E00C05640 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6660A38713ACEC5E00C05640 /* MainWindow.xib */; };
 		6660A41113ACF0EC00C05640 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6660A3E013ACF0EC00C05640 /* NSDataAdditions.m */; };
 		6660A41213ACF0EC00C05640 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 6660A3E213ACF0EC00C05640 /* TBXML.m */; };
@@ -82,6 +84,11 @@
 		665EEB8813AE4A38006490A3 /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIProgressDelegate.h; sourceTree = "<group>"; };
 		665EEB8913AE4A38006490A3 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		665EEB8A13AE4A38006490A3 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		665EEBE313AE5E2F006490A3 /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
+		665EEBE413AE5E2F006490A3 /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
+		665EEBEE13AE5E4F006490A3 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
+		665EEBEF13AE5E4F006490A3 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
+		665EEBF013AE5E4F006490A3 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		6660A38713ACEC5E00C05640 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		6660A3DF13ACF0EC00C05640 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataAdditions.h; sourceTree = "<group>"; };
 		6660A3E013ACF0EC00C05640 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
@@ -227,6 +234,24 @@
 			path = ASIHttpRequest;
 			sourceTree = "<group>";
 		};
+		665EEBEC13AE5E4F006490A3 /* GTM */ = {
+			isa = PBXGroup;
+			children = (
+				665EEBED13AE5E4F006490A3 /* Foundation */,
+				665EEBF013AE5E4F006490A3 /* GTMDefines.h */,
+			);
+			path = GTM;
+			sourceTree = "<group>";
+		};
+		665EEBED13AE5E4F006490A3 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				665EEBEE13AE5E4F006490A3 /* GTMNSString+HTML.h */,
+				665EEBEF13AE5E4F006490A3 /* GTMNSString+HTML.m */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
 		6660A38413ACEC5E00C05640 /* images */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,6 +284,8 @@
 		6660A38F13ACEC6C00C05640 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				665EEBE313AE5E2F006490A3 /* NSString+HTML.h */,
+				665EEBE413AE5E2F006490A3 /* NSString+HTML.m */,
 				6660A45013ACF79500C05640 /* GATracker.h */,
 				6660A45113ACF79500C05640 /* GATracker.m */,
 				6660A45213ACF79500C05640 /* XMLDownloader.h */,
@@ -294,6 +321,7 @@
 		6660A3A213ACF0EC00C05640 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				665EEBEC13AE5E4F006490A3 /* GTM */,
 				665EEB7413AE4A38006490A3 /* ASIHttpRequest */,
 				6660A44C13ACF78400C05640 /* GoogleAnalytics */,
 				6660A3B613ACF0EC00C05640 /* tbxmlex */,
@@ -415,6 +443,8 @@
 				665EEB9113AE4A38006490A3 /* ASIInputStream.m in Sources */,
 				665EEB9213AE4A38006490A3 /* ASINetworkQueue.m in Sources */,
 				665EEB9313AE4A38006490A3 /* Reachability.m in Sources */,
+				665EEBE513AE5E2F006490A3 /* NSString+HTML.m in Sources */,
+				665EEBF113AE5E4F006490A3 /* GTMNSString+HTML.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,6 +1,7 @@
 #import "VDMRSSParser.h"
 #import "TBXMLEx.h"
 #import "VDMEntry.h"
+#import "NSString+HTML.h"
 
 @implementation VDMRSSParser
 
@@ -14,7 +15,7 @@
 		while ([itemNode next]) {
 			VDMEntry *entry = [[VDMEntry alloc] init];
 
-			entry.contents = [itemNode child:@"description"].value;
+			entry.contents = [[[itemNode child:@"description"].value stringByDecodingHTMLEntities] stringByDecodingHTMLEntities];
 			entry.link = [itemNode child:@"link"].value;
 			
 			[items addObject:entry];

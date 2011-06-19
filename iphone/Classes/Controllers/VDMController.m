@@ -4,11 +4,14 @@
 #import "VDMEntry.h"
 #import "ASIHTTPRequest.h"
 
+@interface VDMController()
+-(void) fetchRSS;
+@end
+
 @implementation VDMController
 
 -(void) viewDidLoad {
-	entries = [[NSMutableArray alloc] initWithObjects:@"Conteudo 1 Conteudo 1 Conteudo 1 Conteudo 1 Conteudo 1 Conteudo 1 Conteudo 1 Conteudo 1 Conteudo 1 Conteudo 1 ", @"Conteudo 2 Conteudo 2 Conteudo 2 Conteudo 2 ", @"Conteudo 3", @"Conteudo 4", nil];
-	[self performSelectorInBackground:@selector(fetchRSS) withObject:nil];
+	[self fetchRSS];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -26,26 +29,21 @@
 #pragma mark -
 #pragma mark VDMs download
 -(void) fetchRSS {
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	
-	ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:@"http://feeds.feedburner.com/vidademerda?format=xml"]];
-	[request startSynchronous];
-	
-	if ([request error]) {
-		NSLog(@"Error fetching rss: %@", [[request error] localizedDescription]);
-	}
-	else {
-		VDMRSSParser *parser = [[VDMRSSParser alloc] init];
-		NSArray *items = [parser parse:[request responseString]];
-		
-		for (VDMEntry *entry in items) {
-			NSLog(@"%@\n", entry.contents);
+	__block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:@"http://feeds.feedburner.com/vidademerda?format=xml"]];
+	[request setCompletionBlock:^{
+		if ([request error]) {
+			ShowAlert(@"Erro", [[request error] localizedDescription]);
 		}
-		
-		SafeRelease(parser);
-	}
+		else {
+			VDMRSSParser *parser = [[VDMRSSParser alloc] init];
+			entries = [[parser parse:[request responseString]] retain];
+			SafeRelease(parser);
+			
+			[tableView reloadData];
+		}
+	}];
 	
-	[pool drain];
+	[request startAsynchronous];
 }
 
 #pragma mark -
@@ -55,8 +53,8 @@
 }
 
 -(CGFloat)tableView:(UITableView *)_tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-	NSString *s = [entries objectAtIndex:indexPath.row];
-	return [s sizeWithFont:[UIFont systemFontOfSize:18] constrainedToSize:CGSizeMake(tableView.width, 200) lineBreakMode:UILineBreakModeWordWrap].height + 60;
+	VDMEntry *entry = [entries objectAtIndex:indexPath.row];
+	return [entry.contents sizeWithFont:[UIFont systemFontOfSize:16] constrainedToSize:CGSizeMake(tableView.width, 250) lineBreakMode:UILineBreakModeWordWrap].height + 50;
 }
 
 #pragma mark -
@@ -77,10 +75,11 @@
 	if (!cell) {
 		cell = LoadViewNib(@"VDMEntryCell");
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-		cell.textView.font = [UIFont systemFontOfSize:17];
+		cell.textView.font = [UIFont systemFontOfSize:14];
 	}
 
-	cell.textView.text = [entries objectAtIndex:indexPath.row];
+	VDMEntry *entry = [entries objectAtIndex:indexPath.row];
+	cell.textView.text = entry.contents;
 
 	return cell;
 }

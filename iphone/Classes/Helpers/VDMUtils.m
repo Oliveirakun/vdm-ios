@@ -88,7 +88,6 @@ void ShowAlert(NSString *title, NSString *message) {
 }
 @end
 
-
 #pragma mark -
 #pragma mark UIResponder Categories
 @implementation UIResponder (Aditions)
@@ -150,6 +149,8 @@ void ShowAlert(NSString *title, NSString *message) {
 	return (UIViewController *)result;
 }
 
+@end
+
 #pragma mark -
 #pragma mark UIWebView Categories
 @implementation UIWebView (Additions)
@@ -170,6 +171,8 @@ void ShowAlert(NSString *title, NSString *message) {
 		}
 	}
 }
+
+@end
 
 #pragma mark -
 #pragma mark NSString Categories
