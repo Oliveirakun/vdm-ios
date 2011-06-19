@@ -1,8 +1,6 @@
-//
-// Prefix header for all source files of the 'VDM-iPhone' target in the 'VDM-iPhone' project
-//
-
 #ifdef __OBJC__
     #import <Foundation/Foundation.h>
     #import <UIKit/UIKit.h>
+	#import "VDMConstants.h"
+	#import "VDMUtils.h"
 #endif
