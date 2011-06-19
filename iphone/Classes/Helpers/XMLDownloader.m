@@ -3,7 +3,8 @@
 @implementation XMLDownloader
 @synthesize delegate, onDownloadComplete, xmlParser;
 
--(void) fetchContents:(NSString *) url {
+-(void) fetchContents:(NSURL *) url {
+
 }
 
 -(void) dealloc {

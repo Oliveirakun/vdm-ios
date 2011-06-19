@@ -1,12 +1,13 @@
 #import <Foundation/Foundation.h>
+#import "XMLParser.h"
 
 @interface XMLDownloader : NSObject {
 	id delegate;
 	SEL onDownloadComplete;
-	Class xmlParser;
+	Class<XMLParser> xmlParser;
 }
 
-@property (nonatomic, assign) Class xmlParser;
+@property (nonatomic, assign) Class<XMLParser> xmlParser;
 @property (nonatomic, assign) id delegate;
 @property (nonatomic, assign) SEL onDownloadComplete;
 
