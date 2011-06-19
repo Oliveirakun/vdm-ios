@@ -38,7 +38,6 @@
 		6660A43F13ACF24C00C05640 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6660A43E13ACF24C00C05640 /* SystemConfiguration.framework */; };
 		6660A44F13ACF78400C05640 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6660A44E13ACF78400C05640 /* libGoogleAnalytics.a */; };
 		6660A45913ACF79500C05640 /* GATracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6660A45113ACF79500C05640 /* GATracker.m */; };
-		6660A45A13ACF79500C05640 /* XMLDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6660A45313ACF79500C05640 /* XMLDownloader.m */; };
 		6660A45E13ACF91200C05640 /* VDMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6660A45D13ACF91200C05640 /* VDMUtils.m */; };
 		6660A47F13AD63EA00C05640 /* VDMController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6660A47D13AD63EA00C05640 /* VDMController.m */; };
 		6660A48213AD642B00C05640 /* VDMController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6660A48113AD642B00C05640 /* VDMController.xib */; };
@@ -104,8 +103,6 @@
 		6660A44E13ACF78400C05640 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
 		6660A45013ACF79500C05640 /* GATracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GATracker.h; sourceTree = "<group>"; };
 		6660A45113ACF79500C05640 /* GATracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GATracker.m; sourceTree = "<group>"; };
-		6660A45213ACF79500C05640 /* XMLDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDownloader.h; sourceTree = "<group>"; };
-		6660A45313ACF79500C05640 /* XMLDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDownloader.m; sourceTree = "<group>"; };
 		6660A45713ACF79500C05640 /* VDMConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDMConstants.h; sourceTree = "<group>"; };
 		6660A45813ACF79500C05640 /* XMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLParser.h; sourceTree = "<group>"; };
 		6660A45C13ACF91200C05640 /* VDMUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDMUtils.h; sourceTree = "<group>"; };
@@ -288,8 +285,6 @@
 				665EEBE413AE5E2F006490A3 /* NSString+HTML.m */,
 				6660A45013ACF79500C05640 /* GATracker.h */,
 				6660A45113ACF79500C05640 /* GATracker.m */,
-				6660A45213ACF79500C05640 /* XMLDownloader.h */,
-				6660A45313ACF79500C05640 /* XMLDownloader.m */,
 				6660A45713ACF79500C05640 /* VDMConstants.h */,
 				6660A45813ACF79500C05640 /* XMLParser.h */,
 				6660A45C13ACF91200C05640 /* VDMUtils.h */,
@@ -428,7 +423,6 @@
 				6660A41213ACF0EC00C05640 /* TBXML.m in Sources */,
 				6660A41313ACF0EC00C05640 /* TBXMLEx.m in Sources */,
 				6660A45913ACF79500C05640 /* GATracker.m in Sources */,
-				6660A45A13ACF79500C05640 /* XMLDownloader.m in Sources */,
 				6660A45E13ACF91200C05640 /* VDMUtils.m in Sources */,
 				6660A47F13AD63EA00C05640 /* VDMController.m in Sources */,
 				665EEAE513AE318A006490A3 /* VDMEntryCell.m in Sources */,
