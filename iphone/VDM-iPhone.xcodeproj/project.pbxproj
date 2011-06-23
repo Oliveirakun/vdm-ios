@@ -15,7 +15,6 @@
 		665EEAD413ADA3C1006490A3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 665EEAD313ADA3C1006490A3 /* Default.png */; };
 		665EEAE213AE3177006490A3 /* VDMEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 665EEAE113AE3177006490A3 /* VDMEntryCell.xib */; };
 		665EEAE513AE318A006490A3 /* VDMEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 665EEAE413AE318A006490A3 /* VDMEntryCell.m */; };
-		665EEB5613AE4424006490A3 /* VDMRSSParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 665EEB5513AE4424006490A3 /* VDMRSSParser.m */; };
 		665EEB5B13AE4537006490A3 /* VDMEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 665EEB5A13AE4537006490A3 /* VDMEntry.m */; };
 		665EEB8B13AE4A38006490A3 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 665EEB7613AE4A38006490A3 /* ASIAuthenticationDialog.m */; };
 		665EEB8C13AE4A38006490A3 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 665EEB7913AE4A38006490A3 /* ASIDataCompressor.m */; };
@@ -42,6 +41,7 @@
 		6660A47F13AD63EA00C05640 /* VDMController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6660A47D13AD63EA00C05640 /* VDMController.m */; };
 		6660A48213AD642B00C05640 /* VDMController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6660A48113AD642B00C05640 /* VDMController.xib */; };
 		6660A4A713AD801900C05640 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6660A4A613AD801900C05640 /* libsqlite3.dylib */; };
+		66F48FBC13B3806F0044AEC8 /* VDMEntryXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F48FBB13B3806F0044AEC8 /* VDMEntryXMLParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,8 +57,6 @@
 		665EEAE113AE3177006490A3 /* VDMEntryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VDMEntryCell.xib; sourceTree = "<group>"; };
 		665EEAE313AE318A006490A3 /* VDMEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDMEntryCell.h; sourceTree = "<group>"; };
 		665EEAE413AE318A006490A3 /* VDMEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDMEntryCell.m; sourceTree = "<group>"; };
-		665EEB5413AE4424006490A3 /* VDMRSSParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDMRSSParser.h; sourceTree = "<group>"; };
-		665EEB5513AE4424006490A3 /* VDMRSSParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDMRSSParser.m; sourceTree = "<group>"; };
 		665EEB5913AE4537006490A3 /* VDMEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDMEntry.h; sourceTree = "<group>"; };
 		665EEB5A13AE4537006490A3 /* VDMEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDMEntry.m; sourceTree = "<group>"; };
 		665EEB7513AE4A38006490A3 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
@@ -111,6 +109,8 @@
 		6660A47D13AD63EA00C05640 /* VDMController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDMController.m; sourceTree = "<group>"; };
 		6660A48113AD642B00C05640 /* VDMController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VDMController.xib; sourceTree = "<group>"; };
 		6660A4A613AD801900C05640 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		66F48FBA13B3806F0044AEC8 /* VDMEntryXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDMEntryXMLParser.h; sourceTree = "<group>"; };
+		66F48FBB13B3806F0044AEC8 /* VDMEntryXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDMEntryXMLParser.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* VDM_iPhone-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "VDM_iPhone-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -289,8 +289,8 @@
 				6660A45813ACF79500C05640 /* XMLParser.h */,
 				6660A45C13ACF91200C05640 /* VDMUtils.h */,
 				6660A45D13ACF91200C05640 /* VDMUtils.m */,
-				665EEB5413AE4424006490A3 /* VDMRSSParser.h */,
-				665EEB5513AE4424006490A3 /* VDMRSSParser.m */,
+				66F48FBA13B3806F0044AEC8 /* VDMEntryXMLParser.h */,
+				66F48FBB13B3806F0044AEC8 /* VDMEntryXMLParser.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -426,7 +426,6 @@
 				6660A45E13ACF91200C05640 /* VDMUtils.m in Sources */,
 				6660A47F13AD63EA00C05640 /* VDMController.m in Sources */,
 				665EEAE513AE318A006490A3 /* VDMEntryCell.m in Sources */,
-				665EEB5613AE4424006490A3 /* VDMRSSParser.m in Sources */,
 				665EEB5B13AE4537006490A3 /* VDMEntry.m in Sources */,
 				665EEB8B13AE4A38006490A3 /* ASIAuthenticationDialog.m in Sources */,
 				665EEB8C13AE4A38006490A3 /* ASIDataCompressor.m in Sources */,
@@ -439,6 +438,7 @@
 				665EEB9313AE4A38006490A3 /* Reachability.m in Sources */,
 				665EEBE513AE5E2F006490A3 /* NSString+HTML.m in Sources */,
 				665EEBF113AE5E4F006490A3 /* GTMNSString+HTML.m in Sources */,
+				66F48FBC13B3806F0044AEC8 /* VDMEntryXMLParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

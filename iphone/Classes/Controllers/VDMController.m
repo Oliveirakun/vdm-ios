@@ -1,17 +1,17 @@
 #import "VDMController.h"
 #import "VDMEntryCell.h"
-#import "VDMRSSParser.h"
 #import "VDMEntry.h"
+#import "VDMEntryXMLParser.h"
 #import "ASIHTTPRequest.h"
 
 @interface VDMController()
--(void) fetchRSS;
+-(void) fetchEntriesXML;
 @end
 
 @implementation VDMController
 
 -(void) viewDidLoad {
-	[self fetchRSS];
+	[self fetchEntriesXML];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -28,21 +28,19 @@
 
 #pragma mark -
 #pragma mark VDMs download
--(void) fetchRSS {
-	__block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:@"http://feeds.feedburner.com/vidademerda?format=xml"]];
+-(void) fetchEntriesXML {
+	__block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:@"http://localhost:3000/page/1.xml?bypass_mobile=1"]];
 	[request setCompletionBlock:^{
 		if ([request error]) {
 			ShowAlert(@"Erro", [[request error] localizedDescription]);
 		}
 		else {
-			VDMRSSParser *parser = [[VDMRSSParser alloc] init];
+			VDMEntryXMLParser *parser = [[VDMEntryXMLParser alloc] init];
 			entries = [[parser parse:[request responseString]] retain];
 			SafeRelease(parser);
-			
 			[tableView reloadData];
 		}
 	}];
-	
 	[request startAsynchronous];
 }
 
