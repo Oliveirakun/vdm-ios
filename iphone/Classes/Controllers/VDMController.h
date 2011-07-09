@@ -5,4 +5,8 @@
 	NSMutableArray *entries;
 }
 
+-(IBAction) recentsDidSelect:(id) sender;
+-(IBAction) randomDidSelect:(id) sender;
+-(IBAction) categoryDidSelect:(id) sender;
+
 @end

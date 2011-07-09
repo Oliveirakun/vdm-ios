@@ -1,24 +1,29 @@
 #import "VDMController.h"
 #import "VDMEntryCell.h"
 #import "VDMEntry.h"
-#import "VDMEntryXMLParser.h"
-#import "ASIHTTPRequest.h"
+#import "VDMFetcher.h"
+#import "RSTLTintedBarButtonItem.h"
 
 @interface VDMController()
 -(void) fetchEntriesXML;
+-(void) setActiveButton:(UIBarButtonItem *) newActiveButton;
+-(void) createToolbarItems;
 @end
 
 @implementation VDMController
 
 -(void) viewDidLoad {
+	
 	[self fetchEntriesXML];
+	[self setActiveButton:[self.navigationController.toolbarItems objectAtIndex:0]];
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+	[self createToolbarItems];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	return YES;
-}
-
-- (void)didReceiveMemoryWarning {
 }
 
 - (void)dealloc {
@@ -26,22 +31,54 @@
 	[super dealloc];
 }
 
+-(void) createToolbarItems {
+NSLog(@"tezsf");
+	// Create customizable toolbar items by hands, as Apple loves to make our lives difficult
+	RSTLTintedBarButtonItem *recentsButton = [RSTLTintedBarButtonItem buttonWithText:@"Recentes" andColor:[UIColor blackColor]];
+	recentsButton.target = self;
+	recentsButton.action = @selector(recentsDidSelect:);
+	
+	RSTLTintedBarButtonItem *randomButton = [RSTLTintedBarButtonItem buttonWithText:@"Aleatórias" andColor:[UIColor blackColor]];
+	randomButton.target = self;
+	randomButton.action = @selector(randomDidSelect:);
+	
+	RSTLTintedBarButtonItem *categoryButton = [RSTLTintedBarButtonItem buttonWithText:@"Categoria" andColor:[UIColor blackColor]];
+	categoryButton.target = self;
+	categoryButton.action = @selector(categoryDidSelect:);
+	
+	UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+	[self setToolbarItems:[NSArray arrayWithObjects:flexibleSpace, recentsButton, randomButton, categoryButton, flexibleSpace, nil]];
+}
+
+-(IBAction) recentsDidSelect:(id) sender {
+	
+}
+
+-(IBAction) randomDidSelect:(id) sender {
+	
+}
+
+-(IBAction) categoryDidSelect:(id) sender {
+	
+}
+
+-(void) setActiveButton:(UIBarButtonItem *) newActiveButton {
+
+}
+
 #pragma mark -
 #pragma mark VDMs download
 -(void) fetchEntriesXML {
-	__block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:@"http://localhost:3000/page/1.xml?bypass_mobile=1"]];
-	[request setCompletionBlock:^{
-		if ([request error]) {
-			ShowAlert(@"Erro", [[request error] localizedDescription]);
+	[VDMFetcher fetchFromURL:[NSURL URLWithString:@"http://localhost:3000/page/1.xml?bypass_mobile=1"] withCompletionBlock:^(NSString *errorMessage, NSArray *result) {
+		if (![NSString isStringEmpty:errorMessage]) {
+			ShowAlert(@"Erro", errorMessage);
 		}
 		else {
-			VDMEntryXMLParser *parser = [[VDMEntryXMLParser alloc] init];
-			entries = [[parser parse:[request responseString]] retain];
-			SafeRelease(parser);
+			SafeRelease(entries);
+			entries = [result retain];
 			[tableView reloadData];
 		}
 	}];
-	[request startAsynchronous];
 }
 
 #pragma mark -
@@ -73,7 +110,7 @@
 	if (!cell) {
 		cell = LoadViewNib(@"VDMEntryCell");
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-		cell.textView.font = [UIFont systemFontOfSize:14];
+		cell.textView.font = [UIFont fontWithName:@"Verdana" size:12];
 	}
 
 	VDMEntry *entry = [entries objectAtIndex:indexPath.row];

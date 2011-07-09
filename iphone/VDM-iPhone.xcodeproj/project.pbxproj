@@ -42,6 +42,8 @@
 		6660A48213AD642B00C05640 /* VDMController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6660A48113AD642B00C05640 /* VDMController.xib */; };
 		6660A4A713AD801900C05640 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6660A4A613AD801900C05640 /* libsqlite3.dylib */; };
 		66F48FBC13B3806F0044AEC8 /* VDMEntryXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F48FBB13B3806F0044AEC8 /* VDMEntryXMLParser.m */; };
+		66FD046D13C7F4A400934DD0 /* VDMFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD046C13C7F4A400934DD0 /* VDMFetcher.m */; };
+		66FD04B513C8044C00934DD0 /* RSTLTintedBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD04B413C8044C00934DD0 /* RSTLTintedBarButtonItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +113,10 @@
 		6660A4A613AD801900C05640 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		66F48FBA13B3806F0044AEC8 /* VDMEntryXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDMEntryXMLParser.h; sourceTree = "<group>"; };
 		66F48FBB13B3806F0044AEC8 /* VDMEntryXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDMEntryXMLParser.m; sourceTree = "<group>"; };
+		66FD046B13C7F4A400934DD0 /* VDMFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDMFetcher.h; sourceTree = "<group>"; };
+		66FD046C13C7F4A400934DD0 /* VDMFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDMFetcher.m; sourceTree = "<group>"; };
+		66FD04B313C8044C00934DD0 /* RSTLTintedBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSTLTintedBarButtonItem.h; sourceTree = "<group>"; };
+		66FD04B413C8044C00934DD0 /* RSTLTintedBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSTLTintedBarButtonItem.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* VDM_iPhone-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "VDM_iPhone-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -291,6 +297,8 @@
 				6660A45D13ACF91200C05640 /* VDMUtils.m */,
 				66F48FBA13B3806F0044AEC8 /* VDMEntryXMLParser.h */,
 				66F48FBB13B3806F0044AEC8 /* VDMEntryXMLParser.m */,
+				66FD046B13C7F4A400934DD0 /* VDMFetcher.h */,
+				66FD046C13C7F4A400934DD0 /* VDMFetcher.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -309,6 +317,8 @@
 			children = (
 				665EEAE313AE318A006490A3 /* VDMEntryCell.h */,
 				665EEAE413AE318A006490A3 /* VDMEntryCell.m */,
+				66FD04B313C8044C00934DD0 /* RSTLTintedBarButtonItem.h */,
+				66FD04B413C8044C00934DD0 /* RSTLTintedBarButtonItem.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -439,6 +449,8 @@
 				665EEBE513AE5E2F006490A3 /* NSString+HTML.m in Sources */,
 				665EEBF113AE5E4F006490A3 /* GTMNSString+HTML.m in Sources */,
 				66F48FBC13B3806F0044AEC8 /* VDMEntryXMLParser.m in Sources */,
+				66FD046D13C7F4A400934DD0 /* VDMFetcher.m in Sources */,
+				66FD04B513C8044C00934DD0 /* RSTLTintedBarButtonItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
