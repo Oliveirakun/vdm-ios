@@ -13,6 +13,7 @@ void ShowAlert(NSString *title, NSString *message);
 -(float) height;
 -(float) width;
 -(float) x;
+-(float) rightX;
 -(float) y;
 -(float) lowerY;
 -(void) addTapGesture:(id) target action:(SEL) action tapCount:(int) tapCount;

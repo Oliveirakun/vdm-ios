@@ -3,11 +3,14 @@
 #import "VDMEntry.h"
 #import "VDMFetcher.h"
 #import "RSTLTintedBarButtonItem.h"
+#import "VDMSettings.h"
+#import "RSTLRoundedView.h"
 
 @interface VDMController()
 -(void) fetchEntriesXML;
 -(void) setActiveButton:(UISegmentedControl *) newActiveButton;
 -(void) createToolbarItems;
+-(UIView *) createLoadingView;
 @end
 
 @implementation VDMController
@@ -42,6 +45,30 @@
 	[self setToolbarItems:[NSArray arrayWithObjects:flexibleSpace, recentsButton, randomButton, categoryButton, flexibleSpace, nil]];
 }
 
+-(UIView *) createLoadingView {
+	RSTLRoundedView *roundedView = [[[RSTLRoundedView alloc] initWithFrame:CGRectMake(0, 0, self.view.width - 100, 100)] autorelease];
+	UIActivityIndicatorView *snipping = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite] autorelease];
+	[snipping setSize:CGSizeMake(32, 32)];
+	[snipping startAnimating];
+	UIFont *messageFont = [UIFont systemFontOfSize:14];
+	NSString *message = @"Carregando VDMs";
+	float messageWidth = [message sizeWithFont:messageFont constrainedToSize:CGSizeMake(roundedView.width, roundedView.height) lineBreakMode:UILineBreakModeWordWrap].width;
+	
+	snipping.x = (roundedView.width - (snipping.width + 5 + messageWidth)) / 2;
+	snipping.y = (roundedView.height - snipping.height) / 2;
+
+	UILabel *messageLabel = [[[UILabel alloc] initWithFrame:CGRectMake(snipping.rightX + 5, (roundedView.height - 20) / 2, messageWidth, 20)] autorelease];
+	messageLabel.backgroundColor = [UIColor clearColor];
+	messageLabel.textColor = [UIColor whiteColor];
+	messageLabel.font = messageFont;
+	messageLabel.text = message;
+	
+	[roundedView addSubview:snipping];
+	[roundedView addSubview:messageLabel];	
+	
+	return roundedView;
+}
+
 -(IBAction) recentsDidSelect:(id) sender {
 	[self setActiveButton:sender];
 }
@@ -67,6 +94,9 @@
 #pragma mark -
 #pragma mark VDMs download
 -(void) fetchEntriesXML {
+	UIView *loadingView = [self createLoadingView];
+	[self.view addSubview:loadingView];
+
 	[VDMFetcher fetchFromURL:[NSURL URLWithString:@"http://localhost:3000/page/1.xml?bypass_mobile=1"] withCompletionBlock:^(NSString *errorMessage, NSArray *result) {
 		if (![NSString isStringEmpty:errorMessage]) {
 			ShowAlert(@"Erro", errorMessage);
@@ -75,6 +105,7 @@
 			SafeRelease(entries);
 			entries = [result retain];
 			[tableView reloadData];
+//			[loadingView removeFromSuperview];
 		}
 	}];
 }

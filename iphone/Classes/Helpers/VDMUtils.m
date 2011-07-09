@@ -66,6 +66,10 @@ void ShowAlert(NSString *title, NSString *message) {
 	return self.frame.origin.x;
 }
 
+-(float) rightX {
+	return self.x + self.width;
+}
+
 -(float) y {
 	return self.frame.origin.y;
 }
