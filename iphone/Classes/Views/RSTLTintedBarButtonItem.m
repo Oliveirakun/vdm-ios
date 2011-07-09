@@ -10,8 +10,16 @@
 	return [[[RSTLTintedBarButtonItem alloc] initWithCustomView:button] autorelease];
 }
 
+-(void) setAction:(SEL) action atTarget:(id) target {
+	[self.innerButton addTarget:target action:action forControlEvents:UIControlEventValueChanged];
+}
+
+-(UISegmentedControl *) innerButton {
+	return (UISegmentedControl *)self.customView;
+}
+
 -(void) changeColor:(UIColor *) newColor {
-	[(UISegmentedControl *)self.customView setTintColor:newColor];
+	[self.innerButton setTintColor:newColor];
 }
 
 @end

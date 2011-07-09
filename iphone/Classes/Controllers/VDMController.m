@@ -6,20 +6,16 @@
 
 @interface VDMController()
 -(void) fetchEntriesXML;
--(void) setActiveButton:(UIBarButtonItem *) newActiveButton;
+-(void) setActiveButton:(UISegmentedControl *) newActiveButton;
 -(void) createToolbarItems;
 @end
 
 @implementation VDMController
 
 -(void) viewDidLoad {
-	
 	[self fetchEntriesXML];
-	[self setActiveButton:[self.navigationController.toolbarItems objectAtIndex:0]];
-}
-
--(void) viewWillAppear:(BOOL)animated {
 	[self createToolbarItems];
+	[self setActiveButton:[(RSTLTintedBarButtonItem *)[self.toolbarItems objectAtIndex:1] innerButton]];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -32,38 +28,40 @@
 }
 
 -(void) createToolbarItems {
-NSLog(@"tezsf");
 	// Create customizable toolbar items by hands, as Apple loves to make our lives difficult
 	RSTLTintedBarButtonItem *recentsButton = [RSTLTintedBarButtonItem buttonWithText:@"Recentes" andColor:[UIColor blackColor]];
-	recentsButton.target = self;
-	recentsButton.action = @selector(recentsDidSelect:);
+	[recentsButton setAction:@selector(recentsDidSelect:) atTarget:self];
 	
 	RSTLTintedBarButtonItem *randomButton = [RSTLTintedBarButtonItem buttonWithText:@"Aleatórias" andColor:[UIColor blackColor]];
-	randomButton.target = self;
-	randomButton.action = @selector(randomDidSelect:);
+	[randomButton setAction:@selector(randomDidSelect:) atTarget:self];
 	
 	RSTLTintedBarButtonItem *categoryButton = [RSTLTintedBarButtonItem buttonWithText:@"Categoria" andColor:[UIColor blackColor]];
-	categoryButton.target = self;
-	categoryButton.action = @selector(categoryDidSelect:);
+	[categoryButton setAction:@selector(categoryDidSelect:) atTarget:self];
 	
 	UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
 	[self setToolbarItems:[NSArray arrayWithObjects:flexibleSpace, recentsButton, randomButton, categoryButton, flexibleSpace, nil]];
 }
 
 -(IBAction) recentsDidSelect:(id) sender {
-	
+	[self setActiveButton:sender];
 }
 
 -(IBAction) randomDidSelect:(id) sender {
-	
+	[self setActiveButton:sender];
 }
 
 -(IBAction) categoryDidSelect:(id) sender {
-	
+	[self setActiveButton:sender];
 }
 
--(void) setActiveButton:(UIBarButtonItem *) newActiveButton {
-
+-(void) setActiveButton:(UISegmentedControl *) newActiveButton {
+	for (RSTLTintedBarButtonItem *b in self.toolbarItems) {
+		if ([b isKindOfClass:[RSTLTintedBarButtonItem class]]) {
+			b.innerButton.tintColor = [UIColor blackColor];
+		}
+	}
+	
+	newActiveButton.tintColor = VDMActiveButtonColor;
 }
 
 #pragma mark -
