@@ -64,7 +64,10 @@
 	messageLabel.text = message;
 	
 	[roundedView addSubview:snipping];
-	[roundedView addSubview:messageLabel];	
+	[roundedView addSubview:messageLabel];
+	
+	roundedView.autoresizingMask = MASK_FLEXIBLE_MARGINS;
+	[roundedView setOrigin:CGPointMake((self.view.width - roundedView.width) / 2, (self.view.height - roundedView.height) / 2)];
 	
 	return roundedView;
 }
