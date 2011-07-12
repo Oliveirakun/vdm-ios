@@ -1,7 +1,6 @@
 #import "VDMController.h"
 #import "VDMEntryCell.h"
 #import "VDMEntry.h"
-#import "VDMFetcher.h"
 #import "RSTLTintedBarButtonItem.h"
 #import "VDMSettings.h"
 #import "RSTLRoundedView.h"
@@ -27,6 +26,7 @@
 
 - (void)dealloc {
 	SafeRelease(tableView);
+	SafeRelease(vdmFetcher);
 	[super dealloc];
 }
 
@@ -98,9 +98,13 @@
 #pragma mark VDMs download
 -(void) fetchEntriesXML {
 	UIView *loadingView = [self createLoadingView];
-	[self.view addSubview:loadingView];
+	[self.view addSubviewAnimated:loadingView];
 
-	[VDMFetcher fetchFromURL:[NSURL URLWithString:@"http://localhost:3000/page/1.xml?bypass_mobile=1"] withCompletionBlock:^(NSString *errorMessage, NSArray *result) {
+	if (!vdmFetcher) {
+		vdmFetcher = [[VDMFetcher alloc] init];
+	}
+	
+	[vdmFetcher fetchFromURL:[NSURL URLWithString:@"http://localhost:3000/page/1.xml?bypass_mobile=1"] withCompletionBlock:^(NSString *errorMessage, NSArray *result) {
 		if (![NSString isStringEmpty:errorMessage]) {
 			ShowAlert(@"Erro", errorMessage);
 		}
@@ -108,7 +112,7 @@
 			SafeRelease(entries);
 			entries = [result retain];
 			[tableView reloadData];
-//			[loadingView removeFromSuperview];
+			[loadingView removeFromSuperviewAnimated];
 		}
 	}];
 }

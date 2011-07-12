@@ -6,6 +6,6 @@ typedef void (^VDMFetcherResultAction)(NSString *, NSArray *);
 
 }
 
-+(void) fetchFromURL:(NSURL *) url withCompletionBlock:(VDMFetcherResultAction) resultAction;
+-(void) fetchFromURL:(NSURL *) url withCompletionBlock:(VDMFetcherResultAction) resultAction;
 
 @end

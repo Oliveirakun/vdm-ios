@@ -3,7 +3,7 @@
 void ShowAlert(NSString *title, NSString *message);
 
 // UIView Categegories
-@interface UIView (FrameAditions)
+@interface UIView (RSTLAditions)
 -(void) setOrigin:(CGPoint) newOrigin;
 -(void) setSize:(CGSize) newSize;
 -(void) setHeight:(float) newHeight;
@@ -18,6 +18,8 @@ void ShowAlert(NSString *title, NSString *message);
 -(float) lowerY;
 -(void) addTapGesture:(id) target action:(SEL) action tapCount:(int) tapCount;
 -(void) clearGestureRecognizers;
+-(void) removeFromSuperviewAnimated;
+-(void) addSubviewAnimated:(UIView *)view;
 @end
 
 // NSString Categories

@@ -17,7 +17,24 @@ void ShowAlert(NSString *title, NSString *message) {
 
 #pragma mark -
 #pragma mark UIView Categories
-@implementation UIView (FrameAditions)
+@implementation UIView (RSTLAditions)
+
+-(void) addSubviewAnimated:(UIView *)view {
+	view.alpha = 0;
+	[self addSubview:view];
+	[UIView animateWithDuration:0.4 animations:^{
+		view.alpha = 1;
+	}];
+}
+
+-(void) removeFromSuperviewAnimated {
+	[UIView animateWithDuration:0.4 animations:^{
+		self.alpha = 0;
+	} completion:^(BOOL finished) {
+		[self removeFromSuperview];
+	}];
+}
+
 -(void) setOrigin:(CGPoint) newOrigin {
 	CGRect frame = self.frame;
 	frame.origin = newOrigin;

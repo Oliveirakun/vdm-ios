@@ -4,7 +4,7 @@
 
 @implementation VDMFetcher
 
-+(void) fetchFromURL:(NSURL *) url withCompletionBlock:(VDMFetcherResultAction) resultAction {
+-(void) fetchFromURL:(NSURL *) url withCompletionBlock:(VDMFetcherResultAction) resultAction {
 	__block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
 	[request setCompletionBlock:^{
 		if ([request error]) {
