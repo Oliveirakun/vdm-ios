@@ -27,7 +27,7 @@ void ShowAlert(NSString *title, NSString *message);
 +(BOOL) isStringEmpty:(NSString *)s;
 -(NSURL *) toURL;
 -(NSURL *) toFileURL;
--(BOOL) containsString:(NSString *) s;
+-(BOOL) contains:(NSString *) s;
 @end
 
 // UIResponder Categories

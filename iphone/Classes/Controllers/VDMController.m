@@ -6,7 +6,7 @@
 #import "RSTLRoundedView.h"
 
 @interface VDMController()
--(void) fetchEntriesXML;
+-(void) fetchEntriesXML:(NSString *) path;
 -(void) setActiveButton:(UISegmentedControl *) newActiveButton;
 -(void) createToolbarItems;
 -(UIView *) createLoadingView;
@@ -15,7 +15,7 @@
 @implementation VDMController
 
 -(void) viewDidLoad {
-	[self fetchEntriesXML];
+	[self fetchEntriesXML:@"/page/1.xml"];
 	[self createToolbarItems];
 	[self setActiveButton:[(RSTLTintedBarButtonItem *)[self.toolbarItems objectAtIndex:1] innerButton]];
 }
@@ -73,6 +73,7 @@
 }
 
 -(IBAction) recentsDidSelect:(id) sender {
+	[self fetchEntriesXML:@"/page/1.xml"];
 	[self setActiveButton:sender];
 }
 
@@ -81,6 +82,7 @@
 }
 
 -(IBAction) categoryDidSelect:(id) sender {
+	[self fetchEntriesXML:@"/trabalho.xml"];
 	[self setActiveButton:sender];
 }
 
@@ -96,7 +98,28 @@
 
 #pragma mark -
 #pragma mark VDMs download
--(void) fetchEntriesXML {
+-(void) removeOldEntries {
+	NSMutableArray *indexPaths = [NSMutableArray array];
+	
+	for (int i = 0; i < entries.count; i++) {
+		[indexPaths addObject:[NSIndexPath indexPathForRow:i inSection:0]];
+	}
+	
+	SafeRelease(entries);
+	[tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationRight];
+}
+
+-(void) addNewEntries {
+	NSMutableArray *indexPaths = [NSMutableArray array];
+	
+	for (int i = 0; i < entries.count; i++) {
+		[indexPaths addObject:[NSIndexPath indexPathForRow:i inSection:0]];
+	}
+
+	[tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationLeft];
+}
+
+-(void) fetchEntriesXML:(NSString *) path {
 	UIView *loadingView = [self createLoadingView];
 	[self.view addSubviewAnimated:loadingView];
 
@@ -104,16 +127,22 @@
 		vdmFetcher = [[VDMFetcher alloc] init];
 	}
 	
-	[vdmFetcher fetchFromURL:[NSURL URLWithString:@"http://localhost:3000/page/1.xml?bypass_mobile=1"] withCompletionBlock:^(NSString *errorMessage, NSArray *result) {
-		if (![NSString isStringEmpty:errorMessage]) {
-			ShowAlert(@"Erro", errorMessage);
-		}
-		else {
-			SafeRelease(entries);
-			entries = [result retain];
-			[tableView reloadData];
+	[self removeOldEntries];
+	
+	NSURL *url = [[NSString stringWithFormat:@"%@%@%@bypass_mobile=1", [[VDMSettings instance] baseURL], 
+		path, [path contains:@"?"] ? @"&" : @"?"] toURL];
+	
+	[vdmFetcher fetchFromURL:url
+		withCompletionBlock:^(NSString *errorMessage, NSArray *result) {
+			if (![NSString isStringEmpty:errorMessage]) {
+				ShowAlert(@"Erro", errorMessage);
+			}
+			else {
+				entries = [result retain];
+				[self addNewEntries];
+			}
+			
 			[loadingView removeFromSuperviewAnimated];
-		}
 	}];
 }
 

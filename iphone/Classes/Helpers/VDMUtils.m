@@ -210,7 +210,7 @@ void ShowAlert(NSString *title, NSString *message) {
 	return [NSURL fileURLWithPath:self];
 }
 
--(BOOL) containsString:(NSString *) s {
+-(BOOL) contains:(NSString *) s {
 	return [self rangeOfString:s].location != NSNotFound;
 }
 
