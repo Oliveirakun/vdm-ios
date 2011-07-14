@@ -4,6 +4,7 @@
 #import "RSTLTintedBarButtonItem.h"
 #import "VDMSettings.h"
 #import "RSTLRoundedView.h"
+#import "VDMCategoriesSelectorController.h"
 
 @interface VDMController()
 -(void) fetchEntriesXML:(NSString *) path;
@@ -82,8 +83,20 @@
 }
 
 -(IBAction) categoryDidSelect:(id) sender {
-	[self fetchEntriesXML:@"/trabalho.xml"];
+	//[self fetchEntriesXML:@"/trabalho.xml"];
 	[self setActiveButton:sender];
+	
+	__block VDMCategoriesSelectorController *c = [[VDMCategoriesSelectorController alloc] init];
+	c.contentSizeForViewInPopover = c.view.frame.size;
+	c.onCategorySelect = ^(void *categoryName) {
+		[categoriesPopover dismissPopoverAnimated:YES];
+		[self fetchEntriesXML:[NSString stringWithFormat:@"/%@.xml", categoryName]];
+	};
+	
+	categoriesPopover = [[WEPopoverController alloc] initWithContentViewController:c];
+	[categoriesPopover presentPopoverFromRect:CGRectMake(self.view.width - 100, self.view.height
+	, 50, 50) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+	SafeRelease(c);
 }
 
 -(void) setActiveButton:(UISegmentedControl *) newActiveButton {

@@ -30,3 +30,5 @@
 #define SafeRelease(__POINTER) { [__POINTER release]; __POINTER = nil; }
 
 #define VDMActiveButtonColor [UIColor colorWithRed:207.0/225.0 green:19.0/225.0 blue:67.0/225.0 alpha:1]
+
+typedef void (^RSTLSimpleAction)(void *);
