@@ -28,7 +28,16 @@
 	b.titleLabel.textColor = [UIColor whiteColor];
 	
 	if (onCategorySelect) {
-		onCategorySelect([b.titleLabel.text lowercaseString]);
+		NSString *s = [b.titleLabel.text lowercaseString];
+		
+		if ([s isEqualToString:@"solidão"]) {
+			s = @"solidao";
+		}
+		else if ([s isEqualToString:@"família"]) {
+			s = @"familia";
+		}
+	
+		onCategorySelect(s);
 	}
 }
 

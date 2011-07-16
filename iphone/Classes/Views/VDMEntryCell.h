@@ -2,12 +2,13 @@
 
 @interface VDMEntryCell : UITableViewCell {
 	IBOutlet UITextView *textView;
-	IBOutlet UIButton *button1;
+	IBOutlet UILabel *youDeservedIt;
+	IBOutlet UILabel *yourLifeSucks;
 }
 
-@property (nonatomic, readonly) UIButton *button1;
 @property (nonatomic, readonly) UITextView *textView;
 
--(IBAction) b1:(id) sender;
+-(void) setDeserveCount:(int) count;
+-(void) setLifeSucksCount:(int) count;
 
 @end

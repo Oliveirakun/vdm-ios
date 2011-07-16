@@ -6,6 +6,7 @@
 
 -(void) fetchFromURL:(NSURL *) url withCompletionBlock:(VDMFetcherResultAction) resultAction {
 	__block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+	[request setTimeOutSeconds:30];
 	[request setCompletionBlock:^{
 		if ([request error]) {
 			resultAction([[request error] localizedDescription], nil);

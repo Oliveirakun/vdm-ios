@@ -7,6 +7,11 @@
 	NSMutableArray *entries;
 	VDMFetcher *vdmFetcher;
 	WEPopoverController *categoriesPopover;
+	int currentPage;
+	NSString *currentCategory;
+	BOOL loadingExtra;
+	UIView *loadingExtraMessageView;
+	BOOL isFirstLoad;
 }
 
 -(IBAction) recentsDidSelect:(id) sender;

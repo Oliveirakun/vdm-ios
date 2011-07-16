@@ -5,24 +5,49 @@
 #import "VDMSettings.h"
 #import "RSTLRoundedView.h"
 #import "VDMCategoriesSelectorController.h"
+#import "VDMInfoView.h"
+
+#define RECENTS_VDMS_PATH [NSString stringWithFormat:@"/page/%d.xml", currentPage]
+#define CATEGORY_VDMS_PATH [NSString stringWithFormat:@"/%@.xml?page=%d", currentCategory, currentPage]
 
 @interface VDMController()
 -(void) fetchEntriesXML:(NSString *) path;
 -(void) setActiveButton:(UISegmentedControl *) newActiveButton;
 -(void) createToolbarItems;
 -(UIView *) createLoadingView;
+-(void) removeOldEntries;
+-(void) addNavigationButtons;
 @end
 
 @implementation VDMController
 
 -(void) viewDidLoad {
-	[self fetchEntriesXML:@"/page/1.xml"];
+	currentPage = 1;
+	isFirstLoad = YES;
 	[self createToolbarItems];
 	[self setActiveButton:[(RSTLTintedBarButtonItem *)[self.toolbarItems objectAtIndex:1] innerButton]];
+	[self addNavigationButtons];
+	[self fetchEntriesXML:RECENTS_VDMS_PATH];
+}
+
+-(void) addNavigationButtons {
+	// Logo
+	self.navigationItem.titleView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"vdm_logo_small.png"]] autorelease];
+	
+	// Application info
+	UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight]; 
+	[infoButton addTarget:self action:@selector(infoButtonTouch:) forControlEvents:UIControlEventTouchUpInside];
+	self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:infoButton] autorelease];
+}
+
+-(void) infoButtonTouch:(id) sender {
+	VDMInfoView *infoView = LoadViewNib(@"VDMInfoView");
+	infoView.center = self.view.center;
+	[self.view addSubview:infoView];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	return YES;
+	return UIInterfaceOrientationIsPortrait(interfaceOrientation);
 }
 
 - (void)dealloc {
@@ -39,7 +64,7 @@
 	RSTLTintedBarButtonItem *randomButton = [RSTLTintedBarButtonItem buttonWithText:@"Aleatórias" andColor:[UIColor blackColor]];
 	[randomButton setAction:@selector(randomDidSelect:) atTarget:self];
 	
-	RSTLTintedBarButtonItem *categoryButton = [RSTLTintedBarButtonItem buttonWithText:@"Categoria" andColor:[UIColor blackColor]];
+	RSTLTintedBarButtonItem *categoryButton = [RSTLTintedBarButtonItem buttonWithText:@"Temas" andColor:[UIColor blackColor]];
 	[categoryButton setAction:@selector(categoryDidSelect:) atTarget:self];
 	
 	UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
@@ -47,9 +72,10 @@
 }
 
 -(UIView *) createLoadingView {
-	RSTLRoundedView *roundedView = [[[RSTLRoundedView alloc] initWithFrame:CGRectMake(0, 0, self.view.width - 100, 100)] autorelease];
+	float height = isFirstLoad ? 100 : 50;
+	RSTLRoundedView *roundedView = [[[RSTLRoundedView alloc] initWithFrame:CGRectMake(0, 0, self.view.width - 100, height)] autorelease];
 	UIActivityIndicatorView *snipping = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite] autorelease];
-	[snipping setSize:CGSizeMake(32, 32)];
+	[snipping setSize:CGSizeMake(24, 24)];
 	[snipping startAnimating];
 	UIFont *messageFont = [UIFont systemFontOfSize:14];
 	NSString *message = @"Carregando VDMs";
@@ -68,13 +94,17 @@
 	[roundedView addSubview:messageLabel];
 	
 	roundedView.autoresizingMask = MASK_FLEXIBLE_MARGINS;
-	[roundedView setOrigin:CGPointMake((self.view.width - roundedView.width) / 2, (self.view.height - roundedView.height) / 2)];
+	float y = isFirstLoad ? (self.view.height - roundedView.height) / 2 : 10;
+	[roundedView setOrigin:CGPointMake((self.view.width - roundedView.width) / 2, y)];
 	
 	return roundedView;
 }
 
 -(IBAction) recentsDidSelect:(id) sender {
-	[self fetchEntriesXML:@"/page/1.xml"];
+	currentPage = 1;
+	isFirstLoad = YES;
+	[self removeOldEntries];
+	[self fetchEntriesXML:RECENTS_VDMS_PATH];
 	[self setActiveButton:sender];
 }
 
@@ -83,14 +113,17 @@
 }
 
 -(IBAction) categoryDidSelect:(id) sender {
-	//[self fetchEntriesXML:@"/trabalho.xml"];
 	[self setActiveButton:sender];
 	
 	__block VDMCategoriesSelectorController *c = [[VDMCategoriesSelectorController alloc] init];
 	c.contentSizeForViewInPopover = c.view.frame.size;
 	c.onCategorySelect = ^(void *categoryName) {
 		[categoriesPopover dismissPopoverAnimated:YES];
-		[self fetchEntriesXML:[NSString stringWithFormat:@"/%@.xml", categoryName]];
+		currentCategory = [(NSString *)categoryName retain];
+		currentPage = 1;
+		isFirstLoad = YES;
+		[self removeOldEntries];
+		[self fetchEntriesXML:CATEGORY_VDMS_PATH];
 	};
 	
 	categoriesPopover = [[WEPopoverController alloc] initWithContentViewController:c];
@@ -122,14 +155,15 @@
 	[tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationRight];
 }
 
--(void) addNewEntries {
+-(void) addNewEntries:(BOOL) animated {
 	NSMutableArray *indexPaths = [NSMutableArray array];
 	
-	for (int i = 0; i < entries.count; i++) {
+	for (int i = [tableView numberOfRowsInSection:0]; i < entries.count; i++) {
+		NSLog(@"Adicionando %d", i);
 		[indexPaths addObject:[NSIndexPath indexPathForRow:i inSection:0]];
 	}
 
-	[tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationLeft];
+	[tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:animated ? UITableViewRowAnimationLeft : UITableViewRowAnimationNone];
 }
 
 -(void) fetchEntriesXML:(NSString *) path {
@@ -140,10 +174,10 @@
 		vdmFetcher = [[VDMFetcher alloc] init];
 	}
 	
-	[self removeOldEntries];
-	
 	NSURL *url = [[NSString stringWithFormat:@"%@%@%@bypass_mobile=1", [[VDMSettings instance] baseURL], 
 		path, [path contains:@"?"] ? @"&" : @"?"] toURL];
+		
+	NSLog(@"Buscando VDMs do endereço %@", [url absoluteString]);
 	
 	[vdmFetcher fetchFromURL:url
 		withCompletionBlock:^(NSString *errorMessage, NSArray *result) {
@@ -151,11 +185,19 @@
 				ShowAlert(@"Erro", errorMessage);
 			}
 			else {
-				entries = [result retain];
-				[self addNewEntries];
+				if (entries) {
+					[entries addObjectsFromArray:result];
+					[self addNewEntries:NO];
+				}
+				else {
+					entries = [result retain];
+					[self addNewEntries:YES];
+				}
 			}
 			
 			[loadingView removeFromSuperviewAnimated];
+			isFirstLoad = NO;
+			loadingExtra = NO;
 	}];
 }
 
@@ -187,12 +229,21 @@
 	
 	if (!cell) {
 		cell = LoadViewNib(@"VDMEntryCell");
-		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 		cell.textView.font = [UIFont fontWithName:@"Verdana" size:12];
 	}
 
 	VDMEntry *entry = [entries objectAtIndex:indexPath.row];
 	cell.textView.text = entry.contents;
+	[cell setDeserveCount:entry.deserveCount];
+	[cell setLifeSucksCount:entry.aggreeCount];
+	
+	if ((float)indexPath.row / (float)entries.count >= 0.8 && !loadingExtra && !isFirstLoad) {
+		loadingExtra = YES;
+		currentPage++;
+		NSLog(@"Carregando adicionais. Próxima pagina: %d", currentPage);
+		
+		[self fetchEntriesXML:RECENTS_VDMS_PATH];
+	}
 
 	return cell;
 }

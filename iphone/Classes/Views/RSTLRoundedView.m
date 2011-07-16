@@ -9,6 +9,10 @@
 	self.backgroundColor = [UIColor colorWithRed:45.0/255.0 green:45.0/255.0 blue:45.0/255.0 alpha:0.8];
 }
 
+-(void) awakeFromNib {
+	[self setupDefaults];
+}
+
 -(id) init {
 	if (self = [super init]) {
 		[self setupDefaults];
