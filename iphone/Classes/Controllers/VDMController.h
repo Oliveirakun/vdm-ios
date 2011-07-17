@@ -2,6 +2,12 @@
 #import "VDMFetcher.h"
 #include "WEPopoverController.h"
 
+typedef enum {
+	VDMEntryTypeRecent,
+	VDMEntryTypeCategory,
+	VDMEntryTypeRandom
+} VDMEntryType;
+
 @interface VDMController : UIViewController<UITableViewDelegate, UITableViewDataSource> {
 	IBOutlet UITableView *tableView;
 	NSMutableArray *entries;
@@ -12,6 +18,7 @@
 	BOOL loadingExtra;
 	UIView *loadingExtraMessageView;
 	BOOL isFirstLoad;
+	VDMEntryType currentEntryType;
 }
 
 -(IBAction) recentsDidSelect:(id) sender;

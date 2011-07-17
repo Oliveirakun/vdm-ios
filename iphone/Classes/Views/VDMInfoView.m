@@ -1,5 +1,6 @@
 #import "VDMInfoView.h"
 #import <QuartzCore/QuartzCore.h>
+#import "GATracker.h"
 
 @implementation VDMInfoView
 
@@ -39,6 +40,8 @@
 			
 			[appDescription performSelector:@selector(flashScrollIndicators) withObject:nil afterDelay:1];
 		}];
+		
+		[GATracker trackPageView:@"/info"];
 	}
 }
 

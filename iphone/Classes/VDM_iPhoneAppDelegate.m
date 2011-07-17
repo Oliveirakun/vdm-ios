@@ -11,7 +11,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
 	pool = [[NSAutoreleasePool alloc] init];
 	
-	[[GANTracker sharedTracker] startTrackerWithAccountID:@"UA-7709214-3" dispatchPeriod:60 delegate:nil];
+	[[GANTracker sharedTracker] startTrackerWithAccountID:@"UA-7709214-3" dispatchPeriod:30 delegate:nil];
 	
     self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];

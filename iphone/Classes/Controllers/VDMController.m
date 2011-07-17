@@ -6,6 +6,7 @@
 #import "RSTLRoundedView.h"
 #import "VDMCategoriesSelectorController.h"
 #import "VDMInfoView.h"
+#import "GATracker.h"
 
 #define RECENTS_VDMS_PATH [NSString stringWithFormat:@"/page/%d.xml", currentPage]
 #define CATEGORY_VDMS_PATH [NSString stringWithFormat:@"/%@.xml?page=%d", currentCategory, currentPage]
@@ -18,6 +19,7 @@
 -(UIView *) createLoadingView;
 -(void) removeOldEntries;
 -(void) addNavigationButtons;
+-(void) trackPageView;
 @end
 
 @implementation VDMController
@@ -28,6 +30,7 @@
 	[self createToolbarItems];
 	[self setActiveButton:[(RSTLTintedBarButtonItem *)[self.toolbarItems objectAtIndex:1] innerButton]];
 	[self addNavigationButtons];
+	currentEntryType = VDMEntryTypeRecent;
 	[self fetchEntriesXML:RECENTS_VDMS_PATH];
 }
 
@@ -45,6 +48,18 @@
 	VDMInfoView *infoView = LoadViewNib(@"VDMInfoView");
 	infoView.center = self.view.center;
 	[self.view addSubview:infoView];
+}
+
+-(void) trackPageView {
+	if (currentEntryType == VDMEntryTypeRecent) {
+		[GATracker trackPageView:[NSString stringWithFormat:@"/recentes/%d", currentPage]];
+	}
+	else if (currentEntryType == VDMEntryTypeRandom) {
+		[GATracker trackPageView:[NSString stringWithFormat:@"/aleatorias/%d", currentPage]];
+	}
+	else if (currentEntryType == VDMEntryTypeCategory) {
+		[GATracker trackPageView:[NSString stringWithFormat:@"/categoria/%@/%d", currentCategory, currentPage]];
+	}
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -103,6 +118,7 @@
 }
 
 -(IBAction) recentsDidSelect:(id) sender {
+	currentEntryType = VDMEntryTypeRecent;
 	currentPage = 1;
 	SafeRelease(currentCategory);
 	isFirstLoad = YES;
@@ -112,6 +128,7 @@
 }
 
 -(IBAction) randomDidSelect:(id) sender {
+	currentEntryType = VDMEntryTypeRandom;
 	[self setActiveButton:sender];
 	SafeRelease(currentCategory);
 	currentPage = 1;
@@ -128,6 +145,7 @@
 		[categoriesPopover dismissPopoverAnimated:YES];
 		currentCategory = [(NSString *)categoryName retain];
 		currentPage = 1;
+		currentEntryType = VDMEntryTypeCategory;
 		isFirstLoad = YES;
 		[self setActiveButton:sender];
 		[self removeOldEntries];
@@ -167,7 +185,6 @@
 	NSMutableArray *indexPaths = [NSMutableArray array];
 	
 	for (int i = [tableView numberOfRowsInSection:0]; i < entries.count; i++) {
-		NSLog(@"Adicionando %d", i);
 		[indexPaths addObject:[NSIndexPath indexPathForRow:i inSection:0]];
 	}
 
@@ -201,6 +218,8 @@
 					entries = [result retain];
 					[self addNewEntries:YES];
 				}
+				
+				[self trackPageView];
 			}
 			
 			[loadingView removeFromSuperviewAnimated];
@@ -252,7 +271,15 @@
 		currentPage++;
 		NSLog(@"Carregando adicionais. Próxima pagina: %d", currentPage);
 		
-		[self fetchEntriesXML:RECENTS_VDMS_PATH];
+		if (currentEntryType == VDMEntryTypeRecent) {
+			[self fetchEntriesXML:RECENTS_VDMS_PATH];
+		}
+		else if (currentEntryType == VDMEntryTypeRandom) {
+			[self fetchEntriesXML:RANDOM_VDMS_PATH];
+		}
+		else if (currentEntryType == VDMEntryTypeCategory) {
+			[self fetchEntriesXML:CATEGORY_VDMS_PATH];
+		}
 	}
 
 	return cell;
