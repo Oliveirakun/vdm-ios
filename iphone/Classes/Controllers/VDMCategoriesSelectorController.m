@@ -1,7 +1,40 @@
 #import "VDMCategoriesSelectorController.h"
 
+@interface VDMCategoriesSelectorController ()
+-(NSString *) normalizeCategoryName:(NSString *) value;
+@end
+
 @implementation VDMCategoriesSelectorController
 @synthesize onCategorySelect;
+
+-(void) setSelectedCategory:(NSString *) value {
+	if ([NSString isStringEmpty:value]) {
+		return;
+	}
+	
+	value = [self normalizeCategoryName:value];
+
+	for (UIButton *b in self.view.subviews) {
+		if ([b isKindOfClass:[UIButton class]]) {
+			if ([[self normalizeCategoryName:[b.titleLabel.text lowercaseString]] isEqualToString:value]) {
+				b.backgroundColor = VDMActiveButtonColor;
+				b.titleLabel.textColor = [UIColor whiteColor];
+				break;
+			}
+		}
+	}
+}
+
+-(NSString *) normalizeCategoryName:(NSString *) value {
+	if ([value isEqualToString:@"solidão"]) {
+		value = @"solidao";
+	}
+	else if ([value isEqualToString:@"família"]) {
+		value = @"familia";
+	}
+	
+	return value;
+}
 
 -(IBAction) selectCategory:(id) sender {
 	UIButton *b = sender;
@@ -28,15 +61,7 @@
 	b.titleLabel.textColor = [UIColor whiteColor];
 	
 	if (onCategorySelect) {
-		NSString *s = [b.titleLabel.text lowercaseString];
-		
-		if ([s isEqualToString:@"solidão"]) {
-			s = @"solidao";
-		}
-		else if ([s isEqualToString:@"família"]) {
-			s = @"familia";
-		}
-	
+		NSString *s = [self normalizeCategoryName:[b.titleLabel.text lowercaseString]];
 		onCategorySelect(s);
 	}
 }

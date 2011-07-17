@@ -53,6 +53,7 @@
 - (void)dealloc {
 	SafeRelease(tableView);
 	SafeRelease(vdmFetcher);
+	SafeRelease(currentCategory);
 	[super dealloc];
 }
 
@@ -102,6 +103,7 @@
 
 -(IBAction) recentsDidSelect:(id) sender {
 	currentPage = 1;
+	SafeRelease(currentCategory);
 	isFirstLoad = YES;
 	[self removeOldEntries];
 	[self fetchEntriesXML:RECENTS_VDMS_PATH];
@@ -110,18 +112,22 @@
 
 -(IBAction) randomDidSelect:(id) sender {
 	[self setActiveButton:sender];
+	SafeRelease(currentCategory);
+	currentPage = 1;
+	isFirstLoad = YES;
+	[self removeOldEntries];
 }
 
 -(IBAction) categoryDidSelect:(id) sender {
-	[self setActiveButton:sender];
-	
 	__block VDMCategoriesSelectorController *c = [[VDMCategoriesSelectorController alloc] init];
+	[c setSelectedCategory:currentCategory];
 	c.contentSizeForViewInPopover = c.view.frame.size;
 	c.onCategorySelect = ^(void *categoryName) {
 		[categoriesPopover dismissPopoverAnimated:YES];
 		currentCategory = [(NSString *)categoryName retain];
 		currentPage = 1;
 		isFirstLoad = YES;
+		[self setActiveButton:sender];
 		[self removeOldEntries];
 		[self fetchEntriesXML:CATEGORY_VDMS_PATH];
 	};

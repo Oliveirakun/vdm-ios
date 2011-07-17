@@ -6,6 +6,7 @@
 
 @property (nonatomic, copy) RSTLSimpleAction onCategorySelect;
 
+-(void) setSelectedCategory:(NSString *) value;
 -(IBAction) selectCategory:(id) sender;
 
 @end
