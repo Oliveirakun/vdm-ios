@@ -12,6 +12,7 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765070DF74369002DB57D /* CoreGraphics.framework */; };
+		660B191713D29C5200EF2228 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 660B191613D29C5200EF2228 /* Icon.png */; };
 		661D9C5B13C8DAAA002ABD5E /* VDMSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 661D9C5A13C8DAAA002ABD5E /* VDMSettings.m */; };
 		661D9C5D13C8DB58002ABD5E /* VDMSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 661D9C5C13C8DB58002ABD5E /* VDMSettings.plist */; };
 		661D9C7113C8DE57002ABD5E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 661D9C7013C8DE57002ABD5E /* QuartzCore.framework */; };
@@ -84,6 +85,7 @@
 		288765070DF74369002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28A0AB4B0D9B1048005BE974 /* VDM_iPhone_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDM_iPhone_Prefix.pch; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		660B191613D29C5200EF2228 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		661D9C5913C8DAAA002ABD5E /* VDMSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDMSettings.h; sourceTree = "<group>"; };
 		661D9C5A13C8DAAA002ABD5E /* VDMSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDMSettings.m; sourceTree = "<group>"; };
 		661D9C5C13C8DB58002ABD5E /* VDMSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = VDMSettings.plist; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 		6660A38413ACEC5E00C05640 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				660B191613D29C5200EF2228 /* Icon.png */,
 				66998E3D13D1FA7C00CC6A97 /* vdm_logo_small.png */,
 				665EEAD313ADA3C1006490A3 /* Default.png */,
 			);
@@ -560,6 +563,7 @@
 				661D9D7313CCF9A4002ABD5E /* popoverBgSimple.png in Resources */,
 				66998E3E13D1FA7C00CC6A97 /* vdm_logo_small.png in Resources */,
 				66998E6813D1FF6500CC6A97 /* VDMInfoView.xib in Resources */,
+				660B191713D29C5200EF2228 /* Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
