@@ -69,6 +69,7 @@
 		66998E3E13D1FA7C00CC6A97 /* vdm_logo_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 66998E3D13D1FA7C00CC6A97 /* vdm_logo_small.png */; };
 		66998E6613D1FF1700CC6A97 /* VDMInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66998E6513D1FF1700CC6A97 /* VDMInfoView.m */; };
 		66998E6813D1FF6500CC6A97 /* VDMInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66998E6713D1FF6500CC6A97 /* VDMInfoView.xib */; };
+		66998F8713D26F0700CC6A97 /* VDMEntryCellBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 66998F8613D26F0700CC6A97 /* VDMEntryCellBackground.m */; };
 		66F48FBC13B3806F0044AEC8 /* VDMEntryXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F48FBB13B3806F0044AEC8 /* VDMEntryXMLParser.m */; };
 		66FD046D13C7F4A400934DD0 /* VDMFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD046C13C7F4A400934DD0 /* VDMFetcher.m */; };
 		66FD04B513C8044C00934DD0 /* RSTLTintedBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD04B413C8044C00934DD0 /* RSTLTintedBarButtonItem.m */; };
@@ -176,6 +177,8 @@
 		66998E6413D1FF1700CC6A97 /* VDMInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDMInfoView.h; sourceTree = "<group>"; };
 		66998E6513D1FF1700CC6A97 /* VDMInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDMInfoView.m; sourceTree = "<group>"; };
 		66998E6713D1FF6500CC6A97 /* VDMInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VDMInfoView.xib; sourceTree = "<group>"; };
+		66998F8513D26F0700CC6A97 /* VDMEntryCellBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDMEntryCellBackground.h; sourceTree = "<group>"; };
+		66998F8613D26F0700CC6A97 /* VDMEntryCellBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDMEntryCellBackground.m; sourceTree = "<group>"; };
 		66F48FBA13B3806F0044AEC8 /* VDMEntryXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDMEntryXMLParser.h; sourceTree = "<group>"; };
 		66F48FBB13B3806F0044AEC8 /* VDMEntryXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDMEntryXMLParser.m; sourceTree = "<group>"; };
 		66FD046B13C7F4A400934DD0 /* VDMFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDMFetcher.h; sourceTree = "<group>"; };
@@ -437,6 +440,8 @@
 				661D9C7513C8DEDD002ABD5E /* RSTLRoundedView.m */,
 				66998E6413D1FF1700CC6A97 /* VDMInfoView.h */,
 				66998E6513D1FF1700CC6A97 /* VDMInfoView.m */,
+				66998F8513D26F0700CC6A97 /* VDMEntryCellBackground.h */,
+				66998F8613D26F0700CC6A97 /* VDMEntryCellBackground.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -597,6 +602,7 @@
 				661D9D7913CCFAF6002ABD5E /* UIBarButtonItem+WEPopover.m in Sources */,
 				661D9D7A13CCFAF6002ABD5E /* WETouchableView.m in Sources */,
 				66998E6613D1FF1700CC6A97 /* VDMInfoView.m in Sources */,
+				66998F8713D26F0700CC6A97 /* VDMEntryCellBackground.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

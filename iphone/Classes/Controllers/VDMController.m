@@ -209,7 +209,9 @@
 
 -(CGFloat)tableView:(UITableView *)_tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	VDMEntry *entry = [entries objectAtIndex:indexPath.row];
-	return [entry.contents sizeWithFont:[UIFont systemFontOfSize:16] constrainedToSize:CGSizeMake(tableView.width, 250) lineBreakMode:UILineBreakModeWordWrap].height + 50;
+	return [entry.contents sizeWithFont:[UIFont systemFontOfSize:16] 
+		constrainedToSize:CGSizeMake(tableView.width, 250) 
+		lineBreakMode:UILineBreakModeWordWrap].height + 30;
 }
 
 #pragma mark -

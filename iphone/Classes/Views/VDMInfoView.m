@@ -36,15 +36,21 @@
 			bounceAnimation.removedOnCompletion = NO;
 			bounceAnimation.additive = YES;
 			[contentView.layer addAnimation:bounceAnimation forKey:@"bounceAnimation"];
+			
+			[appDescription performSelector:@selector(flashScrollIndicators) withObject:nil afterDelay:1];
 		}];
 	}
 }
 
 -(IBAction) close:(id) sender {
-	[UIView animateWithDuration:0.3 animations:^{
-		self.alpha = 0;
-	} completion:^(BOOL finished) {
-		[self removeFromSuperview];
+	[UIView animateWithDuration:0.3 delay:0.2 options:UIViewAnimationOptionCurveEaseIn animations:^{
+		[contentView setY:self.height];
+	} completion:^(BOOL finished){
+		[UIView animateWithDuration:0.3 delay:0.1 options:0 animations:^{
+			self.alpha = 0;
+		} completion:^(BOOL finished) {
+			[self removeFromSuperview];
+		}];
 	}];
 }
 
