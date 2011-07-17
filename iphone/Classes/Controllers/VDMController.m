@@ -9,6 +9,7 @@
 
 #define RECENTS_VDMS_PATH [NSString stringWithFormat:@"/page/%d.xml", currentPage]
 #define CATEGORY_VDMS_PATH [NSString stringWithFormat:@"/%@.xml?page=%d", currentCategory, currentPage]
+#define RANDOM_VDMS_PATH @"/many_randoms.xml"
 
 @interface VDMController()
 -(void) fetchEntriesXML:(NSString *) path;
@@ -116,6 +117,7 @@
 	currentPage = 1;
 	isFirstLoad = YES;
 	[self removeOldEntries];
+	[self fetchEntriesXML:RANDOM_VDMS_PATH];
 }
 
 -(IBAction) categoryDidSelect:(id) sender {
