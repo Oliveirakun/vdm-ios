@@ -7,6 +7,8 @@
 #import "VDMCategoriesSelectorController.h"
 #import "VDMInfoView.h"
 #import "GATracker.h"
+#import "VDMAddEntryController.h"
+#import "VDMLoadingView.h"
 
 #define RECENTS_VDMS_PATH [NSString stringWithFormat:@"/page/%d.xml", currentPage]
 #define CATEGORY_VDMS_PATH [NSString stringWithFormat:@"/%@.xml?page=%d", currentCategory, currentPage]
@@ -42,6 +44,18 @@
 	UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight]; 
 	[infoButton addTarget:self action:@selector(infoButtonTouch:) forControlEvents:UIControlEventTouchUpInside];
 	self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:infoButton] autorelease];
+	
+	// Add VDM
+	self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
+		target:self action:@selector(addEntry)] autorelease];
+}
+
+-(void) addEntry {
+	VDMAddEntryController *c = [[VDMAddEntryController alloc] init];
+	self.title = @"Back";
+	[self.navigationController pushViewController:c animated:YES];
+	//[self presentModalViewController:c animated:YES];
+	SafeRelease(c);
 }
 
 -(void) infoButtonTouch:(id) sender {
@@ -90,31 +104,10 @@
 
 -(UIView *) createLoadingView {
 	float height = isFirstLoad ? 100 : 50;
-	RSTLRoundedView *roundedView = [[[RSTLRoundedView alloc] initWithFrame:CGRectMake(0, 0, self.view.width - 100, height)] autorelease];
-	UIActivityIndicatorView *snipping = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite] autorelease];
-	[snipping setSize:CGSizeMake(24, 24)];
-	[snipping startAnimating];
-	UIFont *messageFont = [UIFont systemFontOfSize:14];
-	NSString *message = @"Carregando VDMs";
-	float messageWidth = [message sizeWithFont:messageFont constrainedToSize:CGSizeMake(roundedView.width, roundedView.height) lineBreakMode:UILineBreakModeWordWrap].width;
-	
-	snipping.x = (roundedView.width - (snipping.width + 5 + messageWidth)) / 2;
-	snipping.y = (roundedView.height - snipping.height) / 2;
-
-	UILabel *messageLabel = [[[UILabel alloc] initWithFrame:CGRectMake(snipping.rightX + 5, (roundedView.height - 20) / 2, messageWidth, 20)] autorelease];
-	messageLabel.backgroundColor = [UIColor clearColor];
-	messageLabel.textColor = [UIColor whiteColor];
-	messageLabel.font = messageFont;
-	messageLabel.text = message;
-	
-	[roundedView addSubview:snipping];
-	[roundedView addSubview:messageLabel];
-	
-	roundedView.autoresizingMask = MASK_FLEXIBLE_MARGINS;
-	float y = isFirstLoad ? (self.view.height - roundedView.height) / 2 : 10;
-	[roundedView setOrigin:CGPointMake((self.view.width - roundedView.width) / 2, y)];
-	
-	return roundedView;
+	VDMLoadingView *v = [VDMLoadingView loadingViewWithSize:CGSizeMake(self.view.width - 100, height) message:@"Carregando VDMs"];
+	float y = isFirstLoad ? (self.view.height - v.height) / 2 : 10;
+	[v setOrigin:CGPointMake((self.view.width - v.width) / 2, y)];
+	return v;
 }
 
 -(IBAction) recentsDidSelect:(id) sender {
@@ -194,7 +187,7 @@
 -(void) fetchEntriesXML:(NSString *) path {
 	UIView *loadingView = [self createLoadingView];
 	[self.view addSubviewAnimated:loadingView];
-
+	
 	if (!vdmFetcher) {
 		vdmFetcher = [[VDMFetcher alloc] init];
 	}
@@ -259,6 +252,7 @@
 	if (!cell) {
 		cell = LoadViewNib(@"VDMEntryCell");
 		cell.textView.font = [UIFont fontWithName:@"Verdana" size:12];
+		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	}
 
 	VDMEntry *entry = [entries objectAtIndex:indexPath.row];

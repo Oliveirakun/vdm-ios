@@ -38,6 +38,9 @@
 		661D9D7313CCF9A4002ABD5E /* popoverBgSimple.png in Resources */ = {isa = PBXBuildFile; fileRef = 661D9D6E13CCF9A4002ABD5E /* popoverBgSimple.png */; };
 		661D9D7913CCFAF6002ABD5E /* UIBarButtonItem+WEPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = 661D9D7613CCFAF6002ABD5E /* UIBarButtonItem+WEPopover.m */; };
 		661D9D7A13CCFAF6002ABD5E /* WETouchableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 661D9D7813CCFAF6002ABD5E /* WETouchableView.m */; };
+		6634A39213DB08DE0065E4F3 /* VDMAddEntryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6634A39013DB08DE0065E4F3 /* VDMAddEntryController.m */; };
+		6634A39513DB09030065E4F3 /* VDMAddEntryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6634A39413DB09030065E4F3 /* VDMAddEntryController.xib */; };
+		6634A41913DB296D0065E4F3 /* VDMLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6634A41813DB296D0065E4F3 /* VDMLoadingView.m */; };
 		665EEAD413ADA3C1006490A3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 665EEAD313ADA3C1006490A3 /* Default.png */; };
 		665EEAE213AE3177006490A3 /* VDMEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 665EEAE113AE3177006490A3 /* VDMEntryCell.xib */; };
 		665EEAE513AE318A006490A3 /* VDMEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 665EEAE413AE318A006490A3 /* VDMEntryCell.m */; };
@@ -119,6 +122,11 @@
 		661D9D7613CCFAF6002ABD5E /* UIBarButtonItem+WEPopover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+WEPopover.m"; sourceTree = "<group>"; };
 		661D9D7713CCFAF6002ABD5E /* WETouchableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WETouchableView.h; sourceTree = "<group>"; };
 		661D9D7813CCFAF6002ABD5E /* WETouchableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WETouchableView.m; sourceTree = "<group>"; };
+		6634A38F13DB08DE0065E4F3 /* VDMAddEntryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDMAddEntryController.h; sourceTree = "<group>"; };
+		6634A39013DB08DE0065E4F3 /* VDMAddEntryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDMAddEntryController.m; sourceTree = "<group>"; };
+		6634A39413DB09030065E4F3 /* VDMAddEntryController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VDMAddEntryController.xib; sourceTree = "<group>"; };
+		6634A41713DB296D0065E4F3 /* VDMLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDMLoadingView.h; sourceTree = "<group>"; };
+		6634A41813DB296D0065E4F3 /* VDMLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDMLoadingView.m; sourceTree = "<group>"; };
 		665EEAD313ADA3C1006490A3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		665EEAE113AE3177006490A3 /* VDMEntryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VDMEntryCell.xib; sourceTree = "<group>"; };
 		665EEAE313AE318A006490A3 /* VDMEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDMEntryCell.h; sourceTree = "<group>"; };
@@ -381,6 +389,7 @@
 		6660A38513ACEC5E00C05640 /* xib */ = {
 			isa = PBXGroup;
 			children = (
+				6634A39413DB09030065E4F3 /* VDMAddEntryController.xib */,
 				661D9D3E13CBF193002ABD5E /* VDMCategoriesSelectorController.xib */,
 				6660A48113AD642B00C05640 /* VDMController.xib */,
 				6660A38713ACEC5E00C05640 /* MainWindow.xib */,
@@ -398,6 +407,8 @@
 				6660A47D13AD63EA00C05640 /* VDMController.m */,
 				661D9D3913CBF176002ABD5E /* VDMCategoriesSelectorController.h */,
 				661D9D3A13CBF176002ABD5E /* VDMCategoriesSelectorController.m */,
+				6634A38F13DB08DE0065E4F3 /* VDMAddEntryController.h */,
+				6634A39013DB08DE0065E4F3 /* VDMAddEntryController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -419,6 +430,8 @@
 				66FD046C13C7F4A400934DD0 /* VDMFetcher.m */,
 				661D9C5913C8DAAA002ABD5E /* VDMSettings.h */,
 				661D9C5A13C8DAAA002ABD5E /* VDMSettings.m */,
+				6634A41713DB296D0065E4F3 /* VDMLoadingView.h */,
+				6634A41813DB296D0065E4F3 /* VDMLoadingView.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -564,6 +577,7 @@
 				66998E3E13D1FA7C00CC6A97 /* vdm_logo_small.png in Resources */,
 				66998E6813D1FF6500CC6A97 /* VDMInfoView.xib in Resources */,
 				660B191713D29C5200EF2228 /* Icon.png in Resources */,
+				6634A39513DB09030065E4F3 /* VDMAddEntryController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -607,6 +621,8 @@
 				661D9D7A13CCFAF6002ABD5E /* WETouchableView.m in Sources */,
 				66998E6613D1FF1700CC6A97 /* VDMInfoView.m in Sources */,
 				66998F8713D26F0700CC6A97 /* VDMEntryCellBackground.m in Sources */,
+				6634A39213DB08DE0065E4F3 /* VDMAddEntryController.m in Sources */,
+				6634A41913DB296D0065E4F3 /* VDMLoadingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -658,6 +674,44 @@
 			};
 			name = Release;
 		};
+		660B195513D2A5DA00EF2228 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PREBINDING = NO;
+				SDKROOT = iphoneos;
+			};
+			name = Distribution;
+		};
+		660B195613D2A5DA00EF2228 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Rafael Steil";
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Classes/Libraries/tbxmlex/libs\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = VDM_iPhone_Prefix.pch;
+				INFOPLIST_FILE = "VDM_iPhone-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Classes/Libraries/GoogleAnalytics\"",
+				);
+				PRODUCT_NAME = "VDM-iPhone";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "ECB16C81-6C39-4A6C-A846-B41CCE8B59B7";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Distribution;
+		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -693,6 +747,7 @@
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
+				660B195613D2A5DA00EF2228 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -702,6 +757,7 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
+				660B195513D2A5DA00EF2228 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
