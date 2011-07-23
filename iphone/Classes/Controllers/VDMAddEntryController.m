@@ -37,7 +37,7 @@
 	NSURL *url = [[NSString stringWithFormat:@"%@/vdm", [[VDMSettings instance] baseURL]] toURL];
 	ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
 	[request setPostValue:textView.text forKey:@"entry[contents]"];
-	[request setPostValue:@"3" forKey:@"entry[category_id]"];
+	[request setPostValue:@"9" forKey:@"entry[category_id]"];
 	[request setCompletionBlock:^{
 		ShowAlert(@"Aviso", @"Obrigado. Sua desgraça foi enviada, e está aguardando avaliação dos outros coitados");
 		[loading removeFromSuperviewAnimated];
