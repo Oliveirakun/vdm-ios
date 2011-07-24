@@ -256,9 +256,10 @@
 	}
 
 	VDMEntry *entry = [entries objectAtIndex:indexPath.row];
+	cell.entry = entry;
 	cell.textView.text = entry.contents;
 	[cell setDeserveCount:entry.deserveCount];
-	[cell setLifeSucksCount:entry.aggreeCount];
+	[cell setLifeSucksCount:entry.agreeCount];
 	
 	if ((float)indexPath.row / (float)entries.count >= 0.8 && !loadingExtra && !isFirstLoad) {
 		loadingExtra = YES;

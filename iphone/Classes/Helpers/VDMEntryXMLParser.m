@@ -17,7 +17,7 @@
 			
 			e.entryId = [[entryNode child:@"id"].value intValue];
 			e.contents = [[entryNode child:@"contents"].value stringByDecodingHTMLEntities];
-			e.aggreeCount = [[entryNode child:@"agree-count"].value intValue];
+			e.agreeCount = [[entryNode child:@"agree-count"].value intValue];
 			e.deserveCount = [[entryNode child:@"deserved-count"].value intValue];
 			e.commentsCount = [[entryNode child:@"comments-count"].value intValue];
 			

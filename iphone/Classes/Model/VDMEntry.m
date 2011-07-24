@@ -1,7 +1,8 @@
 #import "VDMEntry.h"
 
 @implementation VDMEntry
-@synthesize contents, entryId, aggreeCount, deserveCount, commentsCount;
+@synthesize contents, entryId, agreeCount, deserveCount, commentsCount, 
+	agreeVoted, deserveVoted;
 
 -(void) dealloc {
 	SafeRelease(contents);
