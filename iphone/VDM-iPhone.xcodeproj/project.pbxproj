@@ -74,6 +74,13 @@
 		66998E6613D1FF1700CC6A97 /* VDMInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66998E6513D1FF1700CC6A97 /* VDMInfoView.m */; };
 		66998E6813D1FF6500CC6A97 /* VDMInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66998E6713D1FF6500CC6A97 /* VDMInfoView.xib */; };
 		66998F8713D26F0700CC6A97 /* VDMEntryCellBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 66998F8613D26F0700CC6A97 /* VDMEntryCellBackground.m */; };
+		66A88CA313DE5BD3003C4C32 /* help_button_navbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 66A88CA213DE5BD3003C4C32 /* help_button_navbar.png */; };
+		66AE281913DCDB440021C061 /* VDMReadEntryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AE281713DCDB440021C061 /* VDMReadEntryController.m */; };
+		66AE281C13DCDB5F0021C061 /* VDMReadEntryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66AE281B13DCDB5F0021C061 /* VDMReadEntryController.xib */; };
+		66AE283213DCE44D0021C061 /* comments.html in Resources */ = {isa = PBXBuildFile; fileRef = 66AE283113DCE44D0021C061 /* comments.html */; };
+		66DA5C4113E0DF0D00E017D3 /* add_keyboard_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 66DA5C4013E0DF0D00E017D3 /* add_keyboard_bar.png */; };
+		66DA5CC313E1042100E017D3 /* VDMEntryTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 66DA5CC213E1042100E017D3 /* VDMEntryTheme.m */; };
+		66DA5CC613E105FC00E017D3 /* VDMThemeChooserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66DA5CC513E105FC00E017D3 /* VDMThemeChooserController.m */; };
 		66F48FBC13B3806F0044AEC8 /* VDMEntryXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F48FBB13B3806F0044AEC8 /* VDMEntryXMLParser.m */; };
 		66FD046D13C7F4A400934DD0 /* VDMFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD046C13C7F4A400934DD0 /* VDMFetcher.m */; };
 		66FD04B513C8044C00934DD0 /* RSTLTintedBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD04B413C8044C00934DD0 /* RSTLTintedBarButtonItem.m */; };
@@ -189,6 +196,16 @@
 		66998E6713D1FF6500CC6A97 /* VDMInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VDMInfoView.xib; sourceTree = "<group>"; };
 		66998F8513D26F0700CC6A97 /* VDMEntryCellBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDMEntryCellBackground.h; sourceTree = "<group>"; };
 		66998F8613D26F0700CC6A97 /* VDMEntryCellBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDMEntryCellBackground.m; sourceTree = "<group>"; };
+		66A88CA213DE5BD3003C4C32 /* help_button_navbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help_button_navbar.png; sourceTree = "<group>"; };
+		66AE281613DCDB440021C061 /* VDMReadEntryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDMReadEntryController.h; sourceTree = "<group>"; };
+		66AE281713DCDB440021C061 /* VDMReadEntryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDMReadEntryController.m; sourceTree = "<group>"; };
+		66AE281B13DCDB5F0021C061 /* VDMReadEntryController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VDMReadEntryController.xib; sourceTree = "<group>"; };
+		66AE283113DCE44D0021C061 /* comments.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = comments.html; sourceTree = "<group>"; };
+		66DA5C4013E0DF0D00E017D3 /* add_keyboard_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_keyboard_bar.png; sourceTree = "<group>"; };
+		66DA5CC113E1042100E017D3 /* VDMEntryTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDMEntryTheme.h; sourceTree = "<group>"; };
+		66DA5CC213E1042100E017D3 /* VDMEntryTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDMEntryTheme.m; sourceTree = "<group>"; };
+		66DA5CC413E105FC00E017D3 /* VDMThemeChooserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDMThemeChooserController.h; sourceTree = "<group>"; };
+		66DA5CC513E105FC00E017D3 /* VDMThemeChooserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDMThemeChooserController.m; sourceTree = "<group>"; };
 		66F48FBA13B3806F0044AEC8 /* VDMEntryXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDMEntryXMLParser.h; sourceTree = "<group>"; };
 		66F48FBB13B3806F0044AEC8 /* VDMEntryXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDMEntryXMLParser.m; sourceTree = "<group>"; };
 		66FD046B13C7F4A400934DD0 /* VDMFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDMFetcher.h; sourceTree = "<group>"; };
@@ -269,6 +286,7 @@
 				6660A38513ACEC5E00C05640 /* xib */,
 				8D1107310486CEB800E47090 /* VDM_iPhone-Info.plist */,
 				661D9C5C13C8DB58002ABD5E /* VDMSettings.plist */,
+				66AE283113DCE44D0021C061 /* comments.html */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -378,6 +396,8 @@
 		6660A38413ACEC5E00C05640 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				66DA5C4013E0DF0D00E017D3 /* add_keyboard_bar.png */,
+				66A88CA213DE5BD3003C4C32 /* help_button_navbar.png */,
 				660B191613D29C5200EF2228 /* Icon.png */,
 				66998E3D13D1FA7C00CC6A97 /* vdm_logo_small.png */,
 				665EEAD313ADA3C1006490A3 /* Default.png */,
@@ -389,6 +409,7 @@
 		6660A38513ACEC5E00C05640 /* xib */ = {
 			isa = PBXGroup;
 			children = (
+				66AE281B13DCDB5F0021C061 /* VDMReadEntryController.xib */,
 				6634A39413DB09030065E4F3 /* VDMAddEntryController.xib */,
 				661D9D3E13CBF193002ABD5E /* VDMCategoriesSelectorController.xib */,
 				6660A48113AD642B00C05640 /* VDMController.xib */,
@@ -409,6 +430,10 @@
 				661D9D3A13CBF176002ABD5E /* VDMCategoriesSelectorController.m */,
 				6634A38F13DB08DE0065E4F3 /* VDMAddEntryController.h */,
 				6634A39013DB08DE0065E4F3 /* VDMAddEntryController.m */,
+				66AE281613DCDB440021C061 /* VDMReadEntryController.h */,
+				66AE281713DCDB440021C061 /* VDMReadEntryController.m */,
+				66DA5CC413E105FC00E017D3 /* VDMThemeChooserController.h */,
+				66DA5CC513E105FC00E017D3 /* VDMThemeChooserController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -441,6 +466,8 @@
 			children = (
 				665EEB5913AE4537006490A3 /* VDMEntry.h */,
 				665EEB5A13AE4537006490A3 /* VDMEntry.m */,
+				66DA5CC113E1042100E017D3 /* VDMEntryTheme.h */,
+				66DA5CC213E1042100E017D3 /* VDMEntryTheme.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -578,6 +605,10 @@
 				66998E6813D1FF6500CC6A97 /* VDMInfoView.xib in Resources */,
 				660B191713D29C5200EF2228 /* Icon.png in Resources */,
 				6634A39513DB09030065E4F3 /* VDMAddEntryController.xib in Resources */,
+				66AE281C13DCDB5F0021C061 /* VDMReadEntryController.xib in Resources */,
+				66AE283213DCE44D0021C061 /* comments.html in Resources */,
+				66A88CA313DE5BD3003C4C32 /* help_button_navbar.png in Resources */,
+				66DA5C4113E0DF0D00E017D3 /* add_keyboard_bar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -623,6 +654,9 @@
 				66998F8713D26F0700CC6A97 /* VDMEntryCellBackground.m in Sources */,
 				6634A39213DB08DE0065E4F3 /* VDMAddEntryController.m in Sources */,
 				6634A41913DB296D0065E4F3 /* VDMLoadingView.m in Sources */,
+				66AE281913DCDB440021C061 /* VDMReadEntryController.m in Sources */,
+				66DA5CC313E1042100E017D3 /* VDMEntryTheme.m in Sources */,
+				66DA5CC613E105FC00E017D3 /* VDMThemeChooserController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,7 @@
 #import "GATracker.h"
 #import "VDMAddEntryController.h"
 #import "VDMLoadingView.h"
+#import "VDMReadEntryController.h"
 
 #define RECENTS_VDMS_PATH [NSString stringWithFormat:@"/page/%d.xml", currentPage]
 #define CATEGORY_VDMS_PATH [NSString stringWithFormat:@"/%@.xml?page=%d", currentCategory, currentPage]
@@ -225,6 +226,11 @@
 #pragma mark UITableViewDelegate
 -(void) tableView:(UITableView *)_tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+	
+	VDMReadEntryController *c = [[VDMReadEntryController alloc] init];
+	c.entry = [entries objectAtIndex:indexPath.row];
+	[self.navigationController pushViewController:c animated:YES];
+	SafeRelease(c);
 }
 
 -(CGFloat)tableView:(UITableView *)_tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

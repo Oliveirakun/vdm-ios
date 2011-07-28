@@ -1,0 +1,22 @@
+<html>
+<head>
+<script type="text/javascript">
+var comments = ${comments};
+</script>
+<style type="text/css">
+* { font-size: 12px; font-family: verdana, arial; }
+hr { border: 1px dashed #ccc; }
+</style>
+</head>
+<body>
+
+<script type="text/javascript">
+for (var i = 0; i < comments.length; i++) {
+	var c = comments[i];
+	
+	document.write(c.comment.contents + "<hr/>");
+}
+</script>
+
+</body>
+</html>

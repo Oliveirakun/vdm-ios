@@ -173,6 +173,18 @@ void ShowAlert(NSString *title, NSString *message) {
 @end
 
 #pragma mark -
+#pragma mark NSMutableString Categories
+@implementation NSMutableString (Additions)
+-(void) replace:(NSString *) stringToReplace with:(NSString *) replacement {
+	if ([NSString isStringEmpty:replacement]) {
+		replacement = @"";
+	}
+	
+	[self replaceOccurrencesOfString:stringToReplace withString:replacement options:0 range:NSMakeRange(0, self.length)];
+}
+@end
+
+#pragma mark -
 #pragma mark UIWebView Categories
 @implementation UIWebView (Additions)
 -(void) disableScrollShadow {

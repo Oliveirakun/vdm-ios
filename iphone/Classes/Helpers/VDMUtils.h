@@ -22,6 +22,11 @@ void ShowAlert(NSString *title, NSString *message);
 -(void) addSubviewAnimated:(UIView *)view;
 @end
 
+// NSMutableString Categories
+@interface NSMutableString (Additions)
+-(void) replace:(NSString *) stringToReplace with:(NSString *) replacement;
+@end
+
 // NSString Categories
 @interface NSString (Additions) 
 +(BOOL) isStringEmpty:(NSString *)s;

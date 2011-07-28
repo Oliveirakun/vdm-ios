@@ -5,9 +5,11 @@
 #import "VDMSettings.h"
 #import "ASIFormDataRequest.h"
 #import "VDMLoadingView.h"
+#import "VDMThemeChooserController.h"
 
 @interface VDMAddEntryController ()
 -(void) back;
+-(void) updateCounterLabel;
 @end
 
 @implementation VDMAddEntryController
@@ -27,6 +29,44 @@
 
 -(void) viewWillAppear:(BOOL)animated {
 	[textView becomeFirstResponder];
+	UIImageView *extraBar = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"add_keyboard_bar.png"]] autorelease];
+	[extraBar setY:189];
+	extraBar.userInteractionEnabled = YES;
+	[self.view addSubview:extraBar];
+	
+	themeLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10, 0, 100, extraBar.height)] autorelease];
+	themeLabel.text = @"tema: geral";
+	themeLabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:13];
+	themeLabel.backgroundColor = [UIColor clearColor];
+	themeLabel.textColor = [UIColor whiteColor];
+	themeLabel.shadowColor = [UIColor blackColor];
+	themeLabel.shadowOffset = CGSizeMake(0, 1);
+	themeLabel.userInteractionEnabled = YES;
+	[themeLabel addTapGesture:self action:@selector(selectTheme) tapCount:1];
+	[extraBar addSubview:themeLabel];
+	
+	counterLabel = [[[UILabel alloc] initWithFrame:CGRectMake(extraBar.rightX - 50, 0, 50, extraBar.height)] autorelease];
+	counterLabel.font = themeLabel.font;
+	counterLabel.backgroundColor = [UIColor clearColor];
+	counterLabel.textColor = themeLabel.textColor;
+	counterLabel.shadowColor = themeLabel.shadowColor;
+	counterLabel.shadowOffset = themeLabel.shadowOffset;
+	[extraBar addSubview:counterLabel];
+	[self updateCounterLabel];
+}
+
+-(void) selectTheme {
+	VDMThemeChooserController *c = [[VDMThemeChooserController alloc] init];
+	c.didChooseThemeAction = ^(void *context) {
+		VDMEntryTheme *t = context;
+		themeLabel.text = [NSString stringWithFormat:@"tema: %@", t.description];	
+	};
+	[self presentModalViewController:c animated:YES];
+	SafeRelease(c);
+}
+
+-(void) updateCounterLabel {
+	counterLabel.text = [NSString stringWithFormat:@"%d/300", textView.text.length];
 }
 
 -(void) send:(id) sender {
@@ -62,6 +102,10 @@
 
 #pragma mark -
 #pragma mark UITextViewDelegate
+-(void) textViewDidChange:(UITextView *)textView {
+	[self updateCounterLabel];
+}
+
 -(BOOL)textView:(UITextView *)_textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
 	return textView.text.length < 300 || range.length > 0;
 }
