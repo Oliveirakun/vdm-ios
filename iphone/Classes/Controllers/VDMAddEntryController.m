@@ -10,6 +10,7 @@
 @interface VDMAddEntryController ()
 -(void) back;
 -(void) updateCounterLabel;
+-(void) showRulesMessage;
 @end
 
 @implementation VDMAddEntryController
@@ -54,6 +55,8 @@
 	counterLabel.shadowOffset = themeLabel.shadowOffset;
 	[extraBar addSubview:counterLabel];
 	[self updateCounterLabel];
+	
+	[self performSelector:@selector(showRulesMessage) withObject:nil afterDelay:0.5];
 }
 
 -(void) selectTheme {
@@ -89,6 +92,7 @@
 	[request setPostValue:textView.text forKey:@"entry[contents]"];
 	[request setPostValue:ToString(selectedThemeId) forKey:@"entry[category_id]"];
 	[request setCompletionBlock:^{
+		[GATracker trackEvent:@"entry" action:@"create" label:@"" value:0];
 		ShowAlert(@"Aviso", @"Obrigado. Sua desgraça foi enviada, e está aguardando avaliação dos outros coitados");
 		[loading removeFromSuperviewAnimated];
 		[self performSelector:@selector(back) withObject:nil afterDelay:1.5];
@@ -108,6 +112,10 @@
 - (void)dealloc {
 	SafeRelease(textView);
 	[super dealloc];
+}
+
+-(void) showRulesMessage {
+	ShowAlert(@"Regras", @"Uma história sempre começa com 'Hoje' e termina com 'VDM'. Sinta-se livre para se expressar como achar melhor, mas escreva em bom português.");
 }
 
 #pragma mark -
