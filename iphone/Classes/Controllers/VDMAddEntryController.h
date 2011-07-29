@@ -5,6 +5,8 @@
 	IBOutlet UITextView *textView;
 	UILabel *counterLabel;
 	UILabel *themeLabel;
+	UIImageView *extraBar;
+	int selectedThemeId;
 }
 
 @end

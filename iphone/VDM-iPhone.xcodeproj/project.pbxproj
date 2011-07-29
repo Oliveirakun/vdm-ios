@@ -81,6 +81,15 @@
 		66DA5C4113E0DF0D00E017D3 /* add_keyboard_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 66DA5C4013E0DF0D00E017D3 /* add_keyboard_bar.png */; };
 		66DA5CC313E1042100E017D3 /* VDMEntryTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 66DA5CC213E1042100E017D3 /* VDMEntryTheme.m */; };
 		66DA5CC613E105FC00E017D3 /* VDMThemeChooserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66DA5CC513E105FC00E017D3 /* VDMThemeChooserController.m */; };
+		66DA5D2713E2305900E017D3 /* trabalho.png in Resources */ = {isa = PBXBuildFile; fileRef = 66DA5D2613E2305900E017D3 /* trabalho.png */; };
+		66DA5D3113E231EC00E017D3 /* relacionamento.png in Resources */ = {isa = PBXBuildFile; fileRef = 66DA5D3013E231EC00E017D3 /* relacionamento.png */; };
+		66DA5D3E13E2328600E017D3 /* familia.png in Resources */ = {isa = PBXBuildFile; fileRef = 66DA5D3D13E2328600E017D3 /* familia.png */; };
+		66DA5D4913E23CBE00E017D3 /* amigos.png in Resources */ = {isa = PBXBuildFile; fileRef = 66DA5D4313E23CBE00E017D3 /* amigos.png */; };
+		66DA5D4A13E23CBE00E017D3 /* dinheiro.png in Resources */ = {isa = PBXBuildFile; fileRef = 66DA5D4413E23CBE00E017D3 /* dinheiro.png */; };
+		66DA5D4B13E23CBE00E017D3 /* estudos.png in Resources */ = {isa = PBXBuildFile; fileRef = 66DA5D4513E23CBE00E017D3 /* estudos.png */; };
+		66DA5D4C13E23CBE00E017D3 /* geral.png in Resources */ = {isa = PBXBuildFile; fileRef = 66DA5D4613E23CBE00E017D3 /* geral.png */; };
+		66DA5D4D13E23CBE00E017D3 /* sexo.png in Resources */ = {isa = PBXBuildFile; fileRef = 66DA5D4713E23CBE00E017D3 /* sexo.png */; };
+		66DA5D4E13E23CBE00E017D3 /* solidao.png in Resources */ = {isa = PBXBuildFile; fileRef = 66DA5D4813E23CBE00E017D3 /* solidao.png */; };
 		66F48FBC13B3806F0044AEC8 /* VDMEntryXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F48FBB13B3806F0044AEC8 /* VDMEntryXMLParser.m */; };
 		66FD046D13C7F4A400934DD0 /* VDMFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD046C13C7F4A400934DD0 /* VDMFetcher.m */; };
 		66FD04B513C8044C00934DD0 /* RSTLTintedBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FD04B413C8044C00934DD0 /* RSTLTintedBarButtonItem.m */; };
@@ -206,6 +215,15 @@
 		66DA5CC213E1042100E017D3 /* VDMEntryTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDMEntryTheme.m; sourceTree = "<group>"; };
 		66DA5CC413E105FC00E017D3 /* VDMThemeChooserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDMThemeChooserController.h; sourceTree = "<group>"; };
 		66DA5CC513E105FC00E017D3 /* VDMThemeChooserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDMThemeChooserController.m; sourceTree = "<group>"; };
+		66DA5D2613E2305900E017D3 /* trabalho.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trabalho.png; sourceTree = "<group>"; };
+		66DA5D3013E231EC00E017D3 /* relacionamento.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = relacionamento.png; sourceTree = "<group>"; };
+		66DA5D3D13E2328600E017D3 /* familia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = familia.png; sourceTree = "<group>"; };
+		66DA5D4313E23CBE00E017D3 /* amigos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amigos.png; sourceTree = "<group>"; };
+		66DA5D4413E23CBE00E017D3 /* dinheiro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dinheiro.png; sourceTree = "<group>"; };
+		66DA5D4513E23CBE00E017D3 /* estudos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = estudos.png; sourceTree = "<group>"; };
+		66DA5D4613E23CBE00E017D3 /* geral.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = geral.png; sourceTree = "<group>"; };
+		66DA5D4713E23CBE00E017D3 /* sexo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sexo.png; sourceTree = "<group>"; };
+		66DA5D4813E23CBE00E017D3 /* solidao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = solidao.png; sourceTree = "<group>"; };
 		66F48FBA13B3806F0044AEC8 /* VDMEntryXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDMEntryXMLParser.h; sourceTree = "<group>"; };
 		66F48FBB13B3806F0044AEC8 /* VDMEntryXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDMEntryXMLParser.m; sourceTree = "<group>"; };
 		66FD046B13C7F4A400934DD0 /* VDMFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDMFetcher.h; sourceTree = "<group>"; };
@@ -396,6 +414,15 @@
 		6660A38413ACEC5E00C05640 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				66DA5D4313E23CBE00E017D3 /* amigos.png */,
+				66DA5D4413E23CBE00E017D3 /* dinheiro.png */,
+				66DA5D4513E23CBE00E017D3 /* estudos.png */,
+				66DA5D4613E23CBE00E017D3 /* geral.png */,
+				66DA5D4713E23CBE00E017D3 /* sexo.png */,
+				66DA5D4813E23CBE00E017D3 /* solidao.png */,
+				66DA5D3D13E2328600E017D3 /* familia.png */,
+				66DA5D3013E231EC00E017D3 /* relacionamento.png */,
+				66DA5D2613E2305900E017D3 /* trabalho.png */,
 				66DA5C4013E0DF0D00E017D3 /* add_keyboard_bar.png */,
 				66A88CA213DE5BD3003C4C32 /* help_button_navbar.png */,
 				660B191613D29C5200EF2228 /* Icon.png */,
@@ -609,6 +636,15 @@
 				66AE283213DCE44D0021C061 /* comments.html in Resources */,
 				66A88CA313DE5BD3003C4C32 /* help_button_navbar.png in Resources */,
 				66DA5C4113E0DF0D00E017D3 /* add_keyboard_bar.png in Resources */,
+				66DA5D2713E2305900E017D3 /* trabalho.png in Resources */,
+				66DA5D3113E231EC00E017D3 /* relacionamento.png in Resources */,
+				66DA5D3E13E2328600E017D3 /* familia.png in Resources */,
+				66DA5D4913E23CBE00E017D3 /* amigos.png in Resources */,
+				66DA5D4A13E23CBE00E017D3 /* dinheiro.png in Resources */,
+				66DA5D4B13E23CBE00E017D3 /* estudos.png in Resources */,
+				66DA5D4C13E23CBE00E017D3 /* geral.png in Resources */,
+				66DA5D4D13E23CBE00E017D3 /* sexo.png in Resources */,
+				66DA5D4E13E23CBE00E017D3 /* solidao.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

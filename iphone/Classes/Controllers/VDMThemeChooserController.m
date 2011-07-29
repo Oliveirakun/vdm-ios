@@ -22,7 +22,7 @@
 		[self theme:6 name:@"estudos" description:@"Estudos"],
 		[self theme:7 name:@"dinheiro" description:@"Dinheiro"],
 		[self theme:8 name:@"solidao" description:@"Solidão"],
-		[self theme:0 name:@"geral" description:@"Geral"], nil] retain];
+		[self theme:9 name:@"geral" description:@"Geral"], nil] retain];
 }
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
@@ -44,6 +44,7 @@
 	VDMEntryTheme *t = [themes objectAtIndex:indexPath.row];
 	cell.textLabel.text = t.description;
 	cell.accessoryType = t.themeId == selectedThemeId ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+	cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", t.name]];
 	
 	return cell;
 }
