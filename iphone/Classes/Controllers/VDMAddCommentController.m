@@ -38,6 +38,7 @@
 		entry.commentsCount++;
 	}];
 	[comment resignFirstResponder];	
+	[username resignFirstResponder];
 	[request startAsynchronous];
 }
 
