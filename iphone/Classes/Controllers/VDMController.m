@@ -4,12 +4,13 @@
 #import "RSTLTintedBarButtonItem.h"
 #import "VDMSettings.h"
 #import "RSTLRoundedView.h"
-#import "VDMCategoriesSelectorController.h"
 #import "VDMInfoView.h"
 #import "GATracker.h"
 #import "VDMAddEntryController.h"
 #import "VDMLoadingView.h"
 #import "VDMReadEntryController.h"
+#import "VDMThemeChooserController.h"
+#import "VDMEntryTheme.h"
 
 #define RECENTS_VDMS_PATH [NSString stringWithFormat:@"/page/%d.xml", currentPage]
 #define CATEGORY_VDMS_PATH [NSString stringWithFormat:@"/%@.xml?page=%d", currentCategory, currentPage]
@@ -35,6 +36,7 @@
 	[self addNavigationButtons];
 	currentEntryType = VDMEntryTypeRecent;
 	[self fetchEntriesXML:RECENTS_VDMS_PATH];
+	selectedThemeId = 9;
 }
 
 -(void) addNavigationButtons {
@@ -132,20 +134,24 @@
 }
 
 -(IBAction) categoryDidSelect:(id) sender {
-	__block VDMCategoriesSelectorController *c = [[VDMCategoriesSelectorController alloc] init];
-	[c setSelectedCategory:currentCategory];
-	c.contentSizeForViewInPopover = c.view.frame.size;
-	c.onCategorySelect = ^(void *categoryName) {
-		[categoriesPopover dismissPopoverAnimated:YES];
-		currentCategory = [(NSString *)categoryName retain];
+	VDMThemeChooserController *c = [[VDMThemeChooserController alloc] init];
+
+	c.didChooseThemeAction = ^(void *context) {
+		VDMEntryTheme *t = context;
+		selectedThemeId = t.themeId;
+		currentCategory = t.name;
 		currentPage = 1;
 		currentEntryType = VDMEntryTypeCategory;
 		isFirstLoad = YES;
+		[categoriesPopover dismissPopoverAnimated:YES];
+		categoriesPopover = nil;
 		[self setActiveButton:sender];
 		[self removeOldEntries];
 		[self fetchEntriesXML:CATEGORY_VDMS_PATH];
 	};
 	
+	c.selectedThemeId = selectedThemeId;
+	c.contentSizeForViewInPopover = CGSizeMake(220, self.view.height - 50);
 	categoriesPopover = [[WEPopoverController alloc] initWithContentViewController:c];
 	[categoriesPopover presentPopoverFromRect:CGRectMake(self.view.width - 100, self.view.height
 	, 50, 50) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
@@ -196,8 +202,6 @@
 	NSURL *url = [[NSString stringWithFormat:@"%@%@%@bypass_mobile=1", [[VDMSettings instance] baseURL], 
 		path, [path contains:@"?"] ? @"&" : @"?"] toURL];
 		
-	NSLog(@"Buscando VDMs do endereço %@", [url absoluteString]);
-	
 	[vdmFetcher fetchFromURL:url
 		withCompletionBlock:^(NSString *errorMessage, NSArray *result) {
 			if (![NSString isStringEmpty:errorMessage]) {

@@ -14,15 +14,16 @@
 
 -(void) viewDidLoad {
 	[super viewDidLoad];
-	themes = [[NSArray arrayWithObjects:[self theme:1 name:@"sexo" description:@"Sexo"], 
+	themes = [[NSArray arrayWithObjects:
 		[self theme:2 name:@"amigos" description:@"Amigos"],
-		[self theme:3 name:@"familia" description:@"Família"],
-		[self theme:4 name:@"relacionamento" description:@"Relacionamento"],
-		[self theme:5 name:@"trabalho" description:@"Trabalho"],
-		[self theme:6 name:@"estudos" description:@"Estudos"],
 		[self theme:7 name:@"dinheiro" description:@"Dinheiro"],
+		[self theme:6 name:@"estudos" description:@"Estudos"],
+		[self theme:3 name:@"familia" description:@"Família"],
+		[self theme:9 name:@"geral" description:@"Geral"],
+		[self theme:4 name:@"relacionamento" description:@"Relacionamento"],
+		[self theme:1 name:@"sexo" description:@"Sexo"], 
 		[self theme:8 name:@"solidao" description:@"Solidão"],
-		[self theme:9 name:@"geral" description:@"Geral"], nil] retain];
+		[self theme:5 name:@"trabalho" description:@"Trabalho"], nil] retain];
 }
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {

@@ -29,8 +29,6 @@
 		661D9D2D13CBF0F2002ABD5E /* popoverArrowUp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 661D9D1F13CBF0F2002ABD5E /* popoverArrowUp@2x.png */; };
 		661D9D2E13CBF0F2002ABD5E /* popoverBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 661D9D2013CBF0F2002ABD5E /* popoverBg.png */; };
 		661D9D2F13CBF0F2002ABD5E /* popoverBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 661D9D2113CBF0F2002ABD5E /* popoverBg@2x.png */; };
-		661D9D3C13CBF176002ABD5E /* VDMCategoriesSelectorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 661D9D3A13CBF176002ABD5E /* VDMCategoriesSelectorController.m */; };
-		661D9D3F13CBF193002ABD5E /* VDMCategoriesSelectorController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 661D9D3E13CBF193002ABD5E /* VDMCategoriesSelectorController.xib */; };
 		661D9D6F13CCF9A4002ABD5E /* popoverArrowDownSimple.png in Resources */ = {isa = PBXBuildFile; fileRef = 661D9D6A13CCF9A4002ABD5E /* popoverArrowDownSimple.png */; };
 		661D9D7013CCF9A4002ABD5E /* popoverArrowLeftSimple.png in Resources */ = {isa = PBXBuildFile; fileRef = 661D9D6B13CCF9A4002ABD5E /* popoverArrowLeftSimple.png */; };
 		661D9D7113CCF9A4002ABD5E /* popoverArrowRightSimple.png in Resources */ = {isa = PBXBuildFile; fileRef = 661D9D6C13CCF9A4002ABD5E /* popoverArrowRightSimple.png */; };
@@ -126,9 +124,6 @@
 		661D9D1F13CBF0F2002ABD5E /* popoverArrowUp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popoverArrowUp@2x.png"; sourceTree = "<group>"; };
 		661D9D2013CBF0F2002ABD5E /* popoverBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverBg.png; sourceTree = "<group>"; };
 		661D9D2113CBF0F2002ABD5E /* popoverBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popoverBg@2x.png"; sourceTree = "<group>"; };
-		661D9D3913CBF176002ABD5E /* VDMCategoriesSelectorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDMCategoriesSelectorController.h; sourceTree = "<group>"; };
-		661D9D3A13CBF176002ABD5E /* VDMCategoriesSelectorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDMCategoriesSelectorController.m; sourceTree = "<group>"; };
-		661D9D3E13CBF193002ABD5E /* VDMCategoriesSelectorController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VDMCategoriesSelectorController.xib; sourceTree = "<group>"; };
 		661D9D6A13CCF9A4002ABD5E /* popoverArrowDownSimple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverArrowDownSimple.png; sourceTree = "<group>"; };
 		661D9D6B13CCF9A4002ABD5E /* popoverArrowLeftSimple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverArrowLeftSimple.png; sourceTree = "<group>"; };
 		661D9D6C13CCF9A4002ABD5E /* popoverArrowRightSimple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverArrowRightSimple.png; sourceTree = "<group>"; };
@@ -438,7 +433,6 @@
 			children = (
 				66AE281B13DCDB5F0021C061 /* VDMReadEntryController.xib */,
 				6634A39413DB09030065E4F3 /* VDMAddEntryController.xib */,
-				661D9D3E13CBF193002ABD5E /* VDMCategoriesSelectorController.xib */,
 				6660A48113AD642B00C05640 /* VDMController.xib */,
 				6660A38713ACEC5E00C05640 /* MainWindow.xib */,
 				665EEAE113AE3177006490A3 /* VDMEntryCell.xib */,
@@ -453,8 +447,6 @@
 			children = (
 				6660A47C13AD63EA00C05640 /* VDMController.h */,
 				6660A47D13AD63EA00C05640 /* VDMController.m */,
-				661D9D3913CBF176002ABD5E /* VDMCategoriesSelectorController.h */,
-				661D9D3A13CBF176002ABD5E /* VDMCategoriesSelectorController.m */,
 				6634A38F13DB08DE0065E4F3 /* VDMAddEntryController.h */,
 				6634A39013DB08DE0065E4F3 /* VDMAddEntryController.m */,
 				66AE281613DCDB440021C061 /* VDMReadEntryController.h */,
@@ -622,7 +614,6 @@
 				661D9D2D13CBF0F2002ABD5E /* popoverArrowUp@2x.png in Resources */,
 				661D9D2E13CBF0F2002ABD5E /* popoverBg.png in Resources */,
 				661D9D2F13CBF0F2002ABD5E /* popoverBg@2x.png in Resources */,
-				661D9D3F13CBF193002ABD5E /* VDMCategoriesSelectorController.xib in Resources */,
 				661D9D6F13CCF9A4002ABD5E /* popoverArrowDownSimple.png in Resources */,
 				661D9D7013CCF9A4002ABD5E /* popoverArrowLeftSimple.png in Resources */,
 				661D9D7113CCF9A4002ABD5E /* popoverArrowRightSimple.png in Resources */,
@@ -683,7 +674,6 @@
 				661D9C7613C8DEDD002ABD5E /* RSTLRoundedView.m in Sources */,
 				661D9D2313CBF0F2002ABD5E /* WEPopoverContainerView.m in Sources */,
 				661D9D2413CBF0F2002ABD5E /* WEPopoverController.m in Sources */,
-				661D9D3C13CBF176002ABD5E /* VDMCategoriesSelectorController.m in Sources */,
 				661D9D7913CCFAF6002ABD5E /* UIBarButtonItem+WEPopover.m in Sources */,
 				661D9D7A13CCFAF6002ABD5E /* WETouchableView.m in Sources */,
 				66998E6613D1FF1700CC6A97 /* VDMInfoView.m in Sources */,

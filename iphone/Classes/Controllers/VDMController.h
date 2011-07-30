@@ -19,6 +19,7 @@ typedef enum {
 	UIView *loadingExtraMessageView;
 	BOOL isFirstLoad;
 	VDMEntryType currentEntryType;
+	int selectedThemeId;
 }
 
 -(IBAction) recentsDidSelect:(id) sender;
