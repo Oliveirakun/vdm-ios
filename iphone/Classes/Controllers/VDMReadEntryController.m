@@ -1,6 +1,7 @@
 #import "VDMReadEntryController.h"
 #import "ASIHTTPRequest.h"
 #import "VDMSettings.h"
+#import "VDMAddCommentController.h"
 
 @interface VDMReadEntryController ()
 -(void) loadComments;
@@ -14,7 +15,7 @@
 	[comments disableScrollShadow];
 	self.title = [NSString stringWithFormat:@"VDM #%d", entry.entryId];	
 	
-	UIFont *font = [UIFont fontWithName:@"Verdana" size:13];
+	UIFont *font = [UIFont fontWithName:@"Verdana" size:12];
 	contents.text = [NSString stringWithFormat:@"\"%@\"", entry.contents];
 	contents.font = font;
 	
@@ -45,7 +46,10 @@
 }
 
 -(void) addComment {
-	
+	VDMAddCommentController *c = [[VDMAddCommentController alloc] init];
+	c.entry = self.entry;
+	[self.navigationController pushViewController:c animated:YES];
+	SafeRelease(c);
 }
 
 -(void) viewWillAppear:(BOOL)animated {
