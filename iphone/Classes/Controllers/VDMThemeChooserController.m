@@ -40,12 +40,15 @@
 	
 	if (!cell) {
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellId];
+		cell.indentationWidth = 5;
+		cell.indentationLevel = 1;
+		cell.textLabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:14];
 	}
 	
 	VDMEntryTheme *t = [themes objectAtIndex:indexPath.row];
 	cell.textLabel.text = t.description;
 	cell.accessoryType = t.themeId == selectedThemeId ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
-	cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", t.name]];
+	cell.imageView.image = [[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", t.name]] resize:CGSizeMake(32, 32)];
 	
 	return cell;
 }

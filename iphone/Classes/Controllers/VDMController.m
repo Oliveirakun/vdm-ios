@@ -274,8 +274,7 @@
 	if ((float)indexPath.row / (float)entries.count >= 0.8 && !loadingExtra && !isFirstLoad) {
 		loadingExtra = YES;
 		currentPage++;
-		NSLog(@"Carregando adicionais. Próxima pagina: %d", currentPage);
-		
+				
 		if (currentEntryType == VDMEntryTypeRecent) {
 			[self fetchEntriesXML:RECENTS_VDMS_PATH];
 		}

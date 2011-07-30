@@ -208,6 +208,18 @@ void ShowAlert(NSString *title, NSString *message) {
 @end
 
 #pragma mark -
+#pragma mark UIImage Categories
+@implementation UIImage(Additions)
+-(UIImage *) resize:(CGSize) size {
+	UIGraphicsBeginImageContext(size);  
+    [self drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    UIImage *newThumbnail = UIGraphicsGetImageFromCurrentImageContext();        
+    UIGraphicsEndImageContext();
+    return newThumbnail;
+}
+@end
+
+#pragma mark -
 #pragma mark NSString Categories
 @implementation NSString (Additions)
 +(BOOL) isStringEmpty:(NSString *)s {
