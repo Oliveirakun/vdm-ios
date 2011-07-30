@@ -35,6 +35,7 @@
 		ShowAlert(@"Aviso", @"Seu comentário foi enviado com sucesso");
 		[loading removeFromSuperviewAnimated];
 		[self performSelector:@selector(back) withObject:nil afterDelay:1.5];
+		entry.commentsCount++;
 	}];
 	[comment resignFirstResponder];	
 	[request startAsynchronous];

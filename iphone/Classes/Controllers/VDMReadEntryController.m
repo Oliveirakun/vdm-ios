@@ -32,7 +32,6 @@
 	commentsLabel.shadowColor = [UIColor whiteColor];
 	commentsLabel.backgroundColor = [UIColor clearColor];
 	commentsLabel.shadowOffset = CGSizeMake(1, 1);
-	commentsLabel.text = @"Carregando comentários...";
 	[commentsBar addSubview:commentsLabel];
 	[self.view addSubview:commentsBar];
 	
@@ -45,6 +44,10 @@
 		style:UIBarButtonItemStyleBordered target:self action:@selector(addComment)] autorelease];
 }
 
+-(void) viewWillAppear:(BOOL)animated {
+	[self loadComments];
+}
+
 -(void) addComment {
 	VDMAddCommentController *c = [[VDMAddCommentController alloc] init];
 	c.entry = self.entry;
@@ -52,10 +55,9 @@
 	SafeRelease(c);
 }
 
--(void) viewWillAppear:(BOOL)animated {
-}
-
 -(void) loadComments {
+	commentsLabel.text = @"Carregando comentários...";
+	
 	NSURL *url = [[NSString stringWithFormat:@"%@/vdm/%d/comentarios.json", [VDMSettings instance].baseURL, entry.entryId] toURL];
 	__block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
 	[request addRequestHeader:@"User-Agent" value:@"Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_8; de-at) AppleWebKit/533.21.1 (KHTML, like Gecko) Version/5.0.5 Safari/533.21.1"];
