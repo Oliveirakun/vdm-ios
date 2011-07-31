@@ -1,6 +1,7 @@
 #import "VDM_iPhoneAppDelegate.h"
 #import "GANTracker.h"
 #import "GATracker.h"
+#import "Appirater.h"
 
 @implementation VDM_iPhoneAppDelegate
 @synthesize window, navController;
@@ -17,6 +18,7 @@
     [self.window makeKeyAndVisible];
 	
 	[GATracker trackPageView:@"/app_start"];
+	[Appirater appLaunched];
 
     return YES;
 }

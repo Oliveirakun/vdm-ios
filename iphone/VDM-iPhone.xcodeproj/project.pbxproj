@@ -76,6 +76,7 @@
 		669BDEAC13E5B77D00A1C054 /* vote_button_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 669BDEAB13E5B77D00A1C054 /* vote_button_bg.png */; };
 		669BDECE13E5C46C00A1C054 /* black_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 669BDECC13E5C46C00A1C054 /* black_button.png */; };
 		669BDECF13E5C46D00A1C054 /* red_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 669BDECD13E5C46C00A1C054 /* red_button.png */; };
+		669BDF2713E5D90D00A1C054 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 669BDF2513E5D90D00A1C054 /* Appirater.m */; };
 		66A88CA313DE5BD3003C4C32 /* help_button_navbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 66A88CA213DE5BD3003C4C32 /* help_button_navbar.png */; };
 		66AE281913DCDB440021C061 /* VDMReadEntryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AE281713DCDB440021C061 /* VDMReadEntryController.m */; };
 		66AE281C13DCDB5F0021C061 /* VDMReadEntryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66AE281B13DCDB5F0021C061 /* VDMReadEntryController.xib */; };
@@ -211,6 +212,8 @@
 		669BDEAB13E5B77D00A1C054 /* vote_button_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vote_button_bg.png; sourceTree = "<group>"; };
 		669BDECC13E5C46C00A1C054 /* black_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_button.png; sourceTree = "<group>"; };
 		669BDECD13E5C46C00A1C054 /* red_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_button.png; sourceTree = "<group>"; };
+		669BDF2413E5D90D00A1C054 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
+		669BDF2513E5D90D00A1C054 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
 		66A88CA213DE5BD3003C4C32 /* help_button_navbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help_button_navbar.png; sourceTree = "<group>"; };
 		66AE281613DCDB440021C061 /* VDMReadEntryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDMReadEntryController.h; sourceTree = "<group>"; };
 		66AE281713DCDB440021C061 /* VDMReadEntryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDMReadEntryController.m; sourceTree = "<group>"; };
@@ -534,6 +537,7 @@
 		6660A3A213ACF0EC00C05640 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				669BDF2313E5D90D00A1C054 /* appirater */,
 				661D9D0F13CBF0F2002ABD5E /* WEPopover */,
 				665EEBEC13AE5E4F006490A3 /* GTM */,
 				665EEB7413AE4A38006490A3 /* ASIHttpRequest */,
@@ -571,6 +575,15 @@
 				6660A44E13ACF78400C05640 /* libGoogleAnalytics.a */,
 			);
 			path = GoogleAnalytics;
+			sourceTree = "<group>";
+		};
+		669BDF2313E5D90D00A1C054 /* appirater */ = {
+			isa = PBXGroup;
+			children = (
+				669BDF2413E5D90D00A1C054 /* Appirater.h */,
+				669BDF2513E5D90D00A1C054 /* Appirater.m */,
+			);
+			path = appirater;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -713,6 +726,7 @@
 				66DA5CC313E1042100E017D3 /* VDMEntryTheme.m in Sources */,
 				66DA5CC613E105FC00E017D3 /* VDMThemeChooserController.m in Sources */,
 				66BE3D1113E45F59000D2C92 /* VDMAddCommentController.m in Sources */,
+				669BDF2713E5D90D00A1C054 /* Appirater.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
