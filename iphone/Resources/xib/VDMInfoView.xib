@@ -142,12 +142,10 @@
 								<bool key="IBUIMultipleTouchEnabled">YES</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<bool key="IBUIEditable">NO</bool>
-								<string type="base64-UTF8" key="IBUIText">RXN0ZSDDqSBvIGFwbGljYXRpdm8gb2ZpY2lhbCBkbyBWRE0gcGFyYSBpUGhvbmUuIE5lc3RhIHByaW1l
-aXJhIHZlcnPDo28gdm9jw6ogcG9kZSBhY29tcGFuaGFyIGFzIMO6bHRpbWFzIGhpc3TDs3JpYXMgcXVl
-IG9zIGNvaXRhZG9zIGRvIEJyYXNpbCBpbnRlaXJvIHJlbGF0YW0uIAoKTWFuZGVtIHN1YXMgc3VnZXN0
-w7VlcyBwYXJhIGNvbnRhdG9AdmlkYWRlbWVyZGEuY29tLmJyCgpFc3RlIMOpIHVtIGFwbGljYXRpdm8g
-T3BlbiBTb3VyY2UuIENhc28gcXVlaXJhIGNvbnRyaWJ1aXIgbm8gZGVzZW52b2x2aW1lbnRvLCBhY2Vz
-c2UgaHR0cDovL2dpdGh1Yi5jb20vcmFmYWVsc3RlaWwvdmRtLWlvcw</string>
+								<string type="base64-UTF8" key="IBUIText">RXN0ZSDDqSBvIGFwbGljYXRpdm8gb2ZpY2lhbCBkbyBWRE0gcGFyYSBpUGhvbmUuIE1hbmRlbSBzdWFz
+IHN1Z2VzdMO1ZXMgcGFyYSBjb250YXRvQHZpZGFkZW1lcmRhLmNvbS5ici4KCkVzdGUgw6kgdW0gYXBs
+aWNhdGl2byBPcGVuIFNvdXJjZS4gQ2FzbyBxdWVpcmEgY29udHJpYnVpciBubyBkZXNlbnZvbHZpbWVu
+dG8sIGFjZXNzZSBodHRwOi8vZ2l0aHViLmNvbS9yYWZhZWxzdGVpbC92ZG0taW9zA</string>
 								<object class="NSColor" key="IBUITextColor">
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MC40NzUgMC40NzUgMC40NzUAA</bytes>
@@ -156,6 +154,7 @@ c2UgaHR0cDovL2dpdGh1Yi5jb20vcmFmYWVsc3RlaWwvdmRtLWlvcw</string>
 									<int key="IBUIAutocapitalizationType">2</int>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								</object>
+								<int key="IBUIDataDetectorTypes">2</int>
 							</object>
 						</object>
 						<string key="NSFrame">{{40, 70}, {240, 320}}</string>
