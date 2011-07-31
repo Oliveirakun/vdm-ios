@@ -44,7 +44,7 @@
 	NSURL *url = [[NSString stringWithFormat:@"%@/vdm/%d/comentarios", [[VDMSettings instance] baseURL], entry.entryId] toURL];
 	__block ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
 	[request setPostValue:comment.text forKey:@"comment[contents]"];
-	[request setPostValue:comment.text forKey:@"comment[nickname]"];
+	[request setPostValue:username.text forKey:@"comment[nickname]"];
 	[request setCompletionBlock:^{
 		[GATracker trackEvent:@"comment" action:@"create" label:ToString(entry.entryId) value:0];
 		ShowAlert(@"Aviso", @"Seu comentário foi enviado com sucesso");
