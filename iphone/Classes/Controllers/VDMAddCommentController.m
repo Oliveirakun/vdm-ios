@@ -9,7 +9,7 @@
 @synthesize entry;
 
 -(void) viewDidLoad {
-	[comment becomeFirstResponder];
+	[username becomeFirstResponder];
 	self.title = @"Comentar";
 	
 	self.navigationItem.hidesBackButton = YES;
@@ -22,6 +22,12 @@
 }
 
 -(void) send:(id) sender {
+	if ([NSString isStringEmpty:username.text]) {
+		ShowAlert(@"Aviso", @"Por favor, informe seu nome ou apelido");
+		[username becomeFirstResponder];
+		return;
+	}
+
 	VDMLoadingView *loading = [VDMLoadingView loadingViewWithSize:CGSizeMake(self.view.width - 100, 100) message:@"Enviando seu comentário..."];
 	loading.autoCenterOnScreen = YES;
 	[self.view addSubview:loading];

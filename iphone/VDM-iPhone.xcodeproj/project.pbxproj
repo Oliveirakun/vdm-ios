@@ -39,6 +39,7 @@
 		6634A39213DB08DE0065E4F3 /* VDMAddEntryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6634A39013DB08DE0065E4F3 /* VDMAddEntryController.m */; };
 		6634A39513DB09030065E4F3 /* VDMAddEntryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6634A39413DB09030065E4F3 /* VDMAddEntryController.xib */; };
 		6634A41913DB296D0065E4F3 /* VDMLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6634A41813DB296D0065E4F3 /* VDMLoadingView.m */; };
+		664D93D313E4DC20009ECD87 /* add_comment_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 664D93D213E4DC20009ECD87 /* add_comment_bg.png */; };
 		665EEAD413ADA3C1006490A3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 665EEAD313ADA3C1006490A3 /* Default.png */; };
 		665EEAE213AE3177006490A3 /* VDMEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 665EEAE113AE3177006490A3 /* VDMEntryCell.xib */; };
 		665EEAE513AE318A006490A3 /* VDMEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 665EEAE413AE318A006490A3 /* VDMEntryCell.m */; };
@@ -141,6 +142,7 @@
 		6634A39413DB09030065E4F3 /* VDMAddEntryController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VDMAddEntryController.xib; sourceTree = "<group>"; };
 		6634A41713DB296D0065E4F3 /* VDMLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDMLoadingView.h; sourceTree = "<group>"; };
 		6634A41813DB296D0065E4F3 /* VDMLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDMLoadingView.m; sourceTree = "<group>"; };
+		664D93D213E4DC20009ECD87 /* add_comment_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_comment_bg.png; sourceTree = "<group>"; };
 		665EEAD313ADA3C1006490A3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		665EEAE113AE3177006490A3 /* VDMEntryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VDMEntryCell.xib; sourceTree = "<group>"; };
 		665EEAE313AE318A006490A3 /* VDMEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDMEntryCell.h; sourceTree = "<group>"; };
@@ -416,6 +418,7 @@
 		6660A38413ACEC5E00C05640 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				664D93D213E4DC20009ECD87 /* add_comment_bg.png */,
 				66BE3CE213E45572000D2C92 /* comments_bar.png */,
 				66DA5D4313E23CBE00E017D3 /* amigos.png */,
 				66DA5D4413E23CBE00E017D3 /* dinheiro.png */,
@@ -649,6 +652,7 @@
 				66DA5D4E13E23CBE00E017D3 /* solidao.png in Resources */,
 				66BE3CE313E45572000D2C92 /* comments_bar.png in Resources */,
 				66BE3D1413E45F72000D2C92 /* VDMAddCommentController.xib in Resources */,
+				664D93D313E4DC20009ECD87 /* add_comment_bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
