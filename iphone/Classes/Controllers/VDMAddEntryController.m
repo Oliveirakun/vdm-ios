@@ -79,6 +79,11 @@
 }
 
 -(void) send:(id) sender {
+	if (![[textView.text uppercaseString] hasSuffix:@"VDM"]) {
+		ShowAlert(@"Aviso", @"A sua história precisa termindar com VDM");
+		return;
+	}
+
 	[UIView animateWithDuration:0.3 animations:^{
 		[extraBar setY:self.view.height];
 	}];
