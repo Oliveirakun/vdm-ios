@@ -12,13 +12,22 @@
 	[username becomeFirstResponder];
 	self.title = @"Comentar";
 	
-	self.navigationItem.hidesBackButton = YES;
-	self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Cancelar" 
-		style:UIBarButtonItemStyleBordered target:self action:@selector(back)] autorelease];
+	UIButton *sendButton = [[[UIButton alloc] init] autorelease];
+	[sendButton setBackgroundImage:[UIImage imageNamed:@"red_button.png"] forState:UIControlStateNormal];
+	[sendButton setTitle:@"Enviar" forState:UIControlStateNormal];
+	[sendButton setSize:CGSizeMake(75, 31)];
+	sendButton.titleLabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:12];
+	[sendButton addTarget:self action:@selector(send:) forControlEvents:UIControlEventTouchUpInside];
+	self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:sendButton] autorelease];
 	
-	RSTLTintedBarButtonItem *sendButton = [RSTLTintedBarButtonItem buttonWithText:@"Enviar" andColor:VDMActiveButtonColor];
-	[sendButton setAction:@selector(send:) atTarget:self];
-	self.navigationItem.rightBarButtonItem = sendButton;
+	self.navigationItem.hidesBackButton = YES;
+	UIButton *cancelButton = [[[UIButton alloc] init] autorelease];
+	[cancelButton setBackgroundImage:[UIImage imageNamed:@"black_button.png"] forState:UIControlStateNormal];
+	[cancelButton setTitle:@"Cancelar" forState:UIControlStateNormal];
+	[cancelButton setSize:CGSizeMake(75, 31)];
+	cancelButton.titleLabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:12];
+	[cancelButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+	self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:cancelButton] autorelease];
 }
 
 -(void) send:(id) sender {

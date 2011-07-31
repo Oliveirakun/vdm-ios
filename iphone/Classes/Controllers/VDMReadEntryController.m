@@ -40,8 +40,26 @@
 	
 	[self loadComments];
 	
-	self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Comentar" 
-		style:UIBarButtonItemStyleBordered target:self action:@selector(addComment)] autorelease];
+	// Comment button
+	UIButton *commentButton = [[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 75, 31)] autorelease];
+	[commentButton setBackgroundImage:[UIImage imageNamed:@"red_button.png"] forState:UIControlStateNormal];
+	[commentButton addTarget:self action:@selector(addComment) forControlEvents:UIControlEventTouchUpInside];
+	[commentButton setTitle:@"Comentar" forState:UIControlStateNormal];
+	commentButton.titleLabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:12];
+	self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:commentButton] autorelease];
+	
+	// Back button
+	self.navigationItem.hidesBackButton = YES;
+	UIButton *backButton = [[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 75, 31)] autorelease];
+	[backButton setBackgroundImage:[UIImage imageNamed:@"black_button.png"] forState:UIControlStateNormal];
+	[backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+	[backButton setTitle:@"Voltar" forState:UIControlStateNormal];
+	backButton.titleLabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:12];
+	self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:backButton] autorelease];
+}
+
+-(void) back {
+	[self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void) viewWillAppear:(BOOL)animated {

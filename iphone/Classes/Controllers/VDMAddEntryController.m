@@ -1,5 +1,4 @@
 #import "VDMAddEntryController.h"
-#import "RSTLTintedBarButtonItem.h"
 #import "ASIHTTPRequest.h"
 #import "GATracker.h"
 #import "VDMSettings.h"
@@ -22,12 +21,23 @@
 	textView.font = [UIFont systemFontOfSize:16];
 	
 	self.navigationItem.hidesBackButton = YES;
-	self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Voltar" 
-		style:UIBarButtonItemStyleBordered target:self action:@selector(back)] autorelease];
+	
+	UIButton *backButton = [[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 75, 31)] autorelease];
+	[backButton setBackgroundImage:[UIImage imageNamed:@"black_button.png"] forState:UIControlStateNormal];
+	[backButton setTitle:@"Voltar" forState:UIControlStateNormal];
+	backButton.titleLabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:12];
+	[backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+	
+	self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:backButton] autorelease];
 		
-	RSTLTintedBarButtonItem *sendButton = [RSTLTintedBarButtonItem buttonWithText:@"Enviar" andColor:VDMActiveButtonColor];
-	[sendButton setAction:@selector(send:) atTarget:self];
-	self.navigationItem.rightBarButtonItem = sendButton;
+	UIButton *sendButton = [[[UIButton alloc] init] autorelease];
+	[sendButton setBackgroundImage:[UIImage imageNamed:@"red_button.png"] forState:UIControlStateNormal];
+	[sendButton setTitle:@"Enviar" forState:UIControlStateNormal];
+	[sendButton setSize:CGSizeMake(75, 31)];
+	sendButton.titleLabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:12];
+	[sendButton addTarget:self action:@selector(send:) forControlEvents:UIControlEventTouchUpInside];
+	
+	self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:sendButton] autorelease];
 
 	[textView becomeFirstResponder];
 	extraBar = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"add_keyboard_bar.png"]] autorelease];

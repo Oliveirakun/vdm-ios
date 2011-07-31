@@ -18,7 +18,7 @@
 
 @interface VDMController()
 -(void) fetchEntriesXML:(NSString *) path;
--(void) setActiveButton:(UISegmentedControl *) newActiveButton;
+-(void) setActiveButton:(UIButton *) newActiveButton;
 -(void) createToolbarItems;
 -(UIView *) createLoadingView;
 -(void) removeOldEntries;
@@ -32,7 +32,7 @@
 	currentPage = 1;
 	isFirstLoad = YES;
 	[self createToolbarItems];
-	[self setActiveButton:[(RSTLTintedBarButtonItem *)[self.toolbarItems objectAtIndex:1] innerButton]];
+	[self setActiveButton:(UIButton *)[(UIBarButtonItem *)[self.toolbarItems objectAtIndex:1] customView]];
 	[self addNavigationButtons];
 	currentEntryType = VDMEntryTypeRecent;
 	[self fetchEntriesXML:RECENTS_VDMS_PATH];
@@ -57,7 +57,6 @@
 	VDMAddEntryController *c = [[VDMAddEntryController alloc] init];
 	self.title = @"Back";
 	[self.navigationController pushViewController:c animated:YES];
-	//[self presentModalViewController:c animated:YES];
 	SafeRelease(c);
 }
 
@@ -91,18 +90,32 @@
 }
 
 -(void) createToolbarItems {
-	// Create customizable toolbar items by hands, as Apple loves to make our lives difficult
-	RSTLTintedBarButtonItem *recentsButton = [RSTLTintedBarButtonItem buttonWithText:@"Recentes" andColor:[UIColor blackColor]];
-	[recentsButton setAction:@selector(recentsDidSelect:) atTarget:self];
+	// Recents
+	UIButton *recentsButton = [[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 75, 31)] autorelease];
+	[recentsButton setBackgroundImage:[UIImage imageNamed:@"black_button.png"] forState:UIControlStateNormal];
+	[recentsButton addTarget:self action:@selector(recentsDidSelect:) forControlEvents:UIControlEventTouchUpInside];
+	[recentsButton setTitle:@"Recentes" forState:UIControlStateNormal];
+	recentsButton.titleLabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:12];
+	UIBarButtonItem *recentsItem = [[[UIBarButtonItem alloc] initWithCustomView:recentsButton] autorelease];
 	
-	RSTLTintedBarButtonItem *randomButton = [RSTLTintedBarButtonItem buttonWithText:@"Aleatórias" andColor:[UIColor blackColor]];
-	[randomButton setAction:@selector(randomDidSelect:) atTarget:self];
-	
-	RSTLTintedBarButtonItem *categoryButton = [RSTLTintedBarButtonItem buttonWithText:@"Temas" andColor:[UIColor blackColor]];
-	[categoryButton setAction:@selector(categoryDidSelect:) atTarget:self];
-	
+	// Random
+	UIButton *randomButton = [[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 75, 31)] autorelease];
+	[randomButton setBackgroundImage:[UIImage imageNamed:@"black_button.png"] forState:UIControlStateNormal];
+	[randomButton addTarget:self action:@selector(randomDidSelect:) forControlEvents:UIControlEventTouchUpInside];
+	[randomButton setTitle:@"Aleatórias" forState:UIControlStateNormal];
+	randomButton.titleLabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:12];
+	UIBarButtonItem *randomItem = [[[UIBarButtonItem alloc] initWithCustomView:randomButton] autorelease];
+
+	// Themes
+	UIButton *themeButton = [[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 75, 31)] autorelease];
+	[themeButton setBackgroundImage:[UIImage imageNamed:@"black_button.png"] forState:UIControlStateNormal];
+	[themeButton addTarget:self action:@selector(categoryDidSelect:) forControlEvents:UIControlEventTouchUpInside];
+	[themeButton setTitle:@"Temas" forState:UIControlStateNormal];
+	themeButton.titleLabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:12];
+	UIBarButtonItem *themeItem = [[[UIBarButtonItem alloc] initWithCustomView:themeButton] autorelease];
+														
 	UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-	[self setToolbarItems:[NSArray arrayWithObjects:flexibleSpace, recentsButton, randomButton, categoryButton, flexibleSpace, nil]];
+	[self setToolbarItems:[NSArray arrayWithObjects:flexibleSpace, recentsItem, randomItem, themeItem, flexibleSpace, nil]];
 }
 
 -(UIView *) createLoadingView {
@@ -158,14 +171,12 @@
 	SafeRelease(c);
 }
 
--(void) setActiveButton:(UISegmentedControl *) newActiveButton {
-	for (RSTLTintedBarButtonItem *b in self.toolbarItems) {
-		if ([b isKindOfClass:[RSTLTintedBarButtonItem class]]) {
-			b.innerButton.tintColor = [UIColor blackColor];
-		}
+-(void) setActiveButton:(UIButton *) newActiveButton {
+	for (UIBarButtonItem *b in self.toolbarItems) {
+		[(UIButton *)b.customView setBackgroundImage:[UIImage imageNamed:@"black_button.png"] forState:UIControlStateNormal];
 	}
 	
-	newActiveButton.tintColor = VDMActiveButtonColor;
+	[newActiveButton setBackgroundImage:[UIImage imageNamed:@"red_button.png"] forState:UIControlStateNormal];
 }
 
 #pragma mark -
