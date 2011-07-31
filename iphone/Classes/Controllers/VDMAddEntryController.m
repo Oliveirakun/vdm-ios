@@ -90,7 +90,7 @@
 
 -(void) send:(id) sender {
 	if (![[textView.text uppercaseString] hasSuffix:@"VDM"]) {
-		ShowAlert(@"Aviso", @"A sua história precisa termindar com VDM");
+		ShowAlert(@"Aviso", @"A sua história precisa terminar com VDM");
 		return;
 	}
 
