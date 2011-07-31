@@ -9,9 +9,6 @@
 -(void) awakeFromNib {
 	self.backgroundView = [[[VDMEntryCellBackground alloc] init] autorelease];
 	self.selectedBackgroundView = [[[VDMEntryCellBackground alloc] init] autorelease];
-	
-	[youDeservedIt addTapGesture:self action:@selector(vote:) tapCount:1];
-	[yourLifeSucks addTapGesture:self action:@selector(vote:) tapCount:1];
 }
 
 -(void) registerVote:(NSString *) type {
@@ -23,14 +20,12 @@
 	[request startAsynchronous];
 }
 
--(void) vote:(UIGestureRecognizer *) gesture {
-	UILabel *sender = (UILabel *)gesture.view;
-	
+-(IBAction) vote:(UIButton *) sender {
 	if ((sender == youDeservedIt && entry.deserveVoted) || (sender == yourLifeSucks && entry.agreeVoted)) {
 		[UIView animateWithDuration:0.4 animations:^{
 			sender.alpha = 0;
 		} completion:^(BOOL finished) {
-			sender.text = @"Você já votou";
+			[sender setTitle:@"Você já votou" forState:UIControlStateNormal];
 			
 			[UIView animateWithDuration:0.4 animations:^{
 				sender.alpha = 1;
@@ -73,11 +68,11 @@
 }
 
 -(void) setDeserveCount:(int) count {
-	youDeservedIt.text = [NSString stringWithFormat:@"Você mereceu (%d)", count];
+	[youDeservedIt setTitle:[NSString stringWithFormat:@"Você mereceu (%d)", count] forState:UIControlStateNormal];
 }
 
 -(void) setLifeSucksCount:(int) count {
-	yourLifeSucks.text = [NSString stringWithFormat:@"Sua vida é uma merda (%d)", count];
+	[yourLifeSucks setTitle:[NSString stringWithFormat:@"Sua vida é uma merda (%d)", count] forState:UIControlStateNormal];
 }
 
 -(void) dealloc {

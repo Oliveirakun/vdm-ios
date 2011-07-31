@@ -3,8 +3,8 @@
 
 @interface VDMEntryCell : UITableViewCell {
 	IBOutlet UITextView *textView;
-	IBOutlet UILabel *youDeservedIt;
-	IBOutlet UILabel *yourLifeSucks;
+	IBOutlet UIButton *yourLifeSucks;
+	IBOutlet UIButton *youDeservedIt;
 	VDMEntry *entry;
 }
 
@@ -13,5 +13,7 @@
 
 -(void) setDeserveCount:(int) count;
 -(void) setLifeSucksCount:(int) count;
+
+-(IBAction) vote:(UIButton *) sender;
 
 @end

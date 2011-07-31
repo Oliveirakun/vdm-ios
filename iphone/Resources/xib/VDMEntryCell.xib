@@ -68,48 +68,60 @@
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								</object>
 							</object>
-							<object class="IBUILabel" id="977145027">
+							<object class="IBUIButton" id="759082047">
 								<reference key="NSNextResponder" ref="806924112"/>
 								<int key="NSvFlags">268</int>
-								<string key="NSFrame">{{9, 108}, {165, 21}}</string>
+								<string key="NSFrame">{{5, 107}, {169, 26}}</string>
 								<reference key="NSSuperview" ref="806924112"/>
 								<bool key="IBUIOpaque">NO</bool>
-								<bool key="IBUIClipsSubviews">YES</bool>
-								<int key="IBUIContentMode">7</int>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<string key="IBUIText">Sua vida é uma merda (11)</string>
-								<object class="NSFont" key="IBUIFont" id="947760580">
+								<int key="IBUIContentHorizontalAlignment">0</int>
+								<int key="IBUIContentVerticalAlignment">0</int>
+								<object class="NSFont" key="IBUIFont" id="386709834">
 									<string key="NSName">Helvetica-Bold</string>
-									<double key="NSSize">12</double>
+									<double key="NSSize">10</double>
 									<int key="NSfFlags">16</int>
 								</object>
-								<object class="NSColor" key="IBUITextColor" id="751123724">
+								<bool key="IBUIAdjustsImageWhenHighlighted">NO</bool>
+								<bool key="IBUIAdjustsImageWhenDisabled">NO</bool>
+								<string key="IBUITitleShadowOffset">{1, 1}</string>
+								<object class="NSColor" key="IBUIHighlightedTitleColor" id="30746945">
 									<int key="NSColorSpace">1</int>
-									<bytes key="NSRGB">MCAwIDAAA</bytes>
+									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 								</object>
-								<nil key="IBUIHighlightedColor"/>
-								<reference key="IBUIShadowColor" ref="751123724"/>
-								<string key="IBUIShadowOffset">{0, 0}</string>
-								<int key="IBUIBaselineAdjustment">1</int>
-								<float key="IBUIMinimumFontSize">10</float>
+								<object class="NSColor" key="IBUINormalTitleColor">
+									<int key="NSColorSpace">1</int>
+									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+								</object>
+								<object class="NSColor" key="IBUINormalTitleShadowColor" id="573972545">
+									<int key="NSColorSpace">1</int>
+									<bytes key="NSRGB">MSAxIDEAA</bytes>
+								</object>
+								<object class="NSCustomResource" key="IBUINormalBackgroundImage" id="723710832">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">vote_button_bg.png</string>
+								</object>
 							</object>
-							<object class="IBUILabel" id="828038529">
+							<object class="IBUIButton" id="326357905">
 								<reference key="NSNextResponder" ref="806924112"/>
 								<int key="NSvFlags">268</int>
-								<string key="NSFrame">{{182, 108}, {114, 21}}</string>
+								<string key="NSFrame">{{177, 107}, {130, 26}}</string>
 								<reference key="NSSuperview" ref="806924112"/>
 								<bool key="IBUIOpaque">NO</bool>
-								<bool key="IBUIClipsSubviews">YES</bool>
-								<int key="IBUIContentMode">7</int>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<string key="IBUIText">Você mereceu (456)</string>
-								<reference key="IBUIFont" ref="947760580"/>
-								<reference key="IBUITextColor" ref="751123724"/>
-								<nil key="IBUIHighlightedColor"/>
-								<reference key="IBUIShadowColor" ref="751123724"/>
-								<string key="IBUIShadowOffset">{0, 0}</string>
-								<int key="IBUIBaselineAdjustment">1</int>
-								<float key="IBUIMinimumFontSize">10</float>
+								<int key="IBUIContentHorizontalAlignment">0</int>
+								<int key="IBUIContentVerticalAlignment">0</int>
+								<reference key="IBUIFont" ref="386709834"/>
+								<bool key="IBUIAdjustsImageWhenHighlighted">NO</bool>
+								<bool key="IBUIAdjustsImageWhenDisabled">NO</bool>
+								<string key="IBUITitleShadowOffset">{1, 1}</string>
+								<reference key="IBUIHighlightedTitleColor" ref="30746945"/>
+								<object class="NSColor" key="IBUINormalTitleColor">
+									<int key="NSColorSpace">1</int>
+									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+								</object>
+								<reference key="IBUINormalTitleShadowColor" ref="573972545"/>
+								<reference key="IBUINormalBackgroundImage" ref="723710832"/>
 							</object>
 						</object>
 						<string key="NSFrameSize">{313, 140}</string>
@@ -127,10 +139,7 @@
 				</object>
 				<string key="NSFrameSize">{313, 140}</string>
 				<reference key="NSSuperview"/>
-				<object class="NSColor" key="IBUIBackgroundColor">
-					<int key="NSColorSpace">1</int>
-					<bytes key="NSRGB">MSAxIDEAA</bytes>
-				</object>
+				<reference key="IBUIBackgroundColor" ref="573972545"/>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<int key="IBUISeparatorStyle">1</int>
 				<reference key="IBUIContentView" ref="806924112"/>
@@ -148,20 +157,38 @@
 					<int key="connectionID">7</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">vote:</string>
+						<reference key="source" ref="759082047"/>
+						<reference key="destination" ref="686456780"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">21</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">vote:</string>
+						<reference key="source" ref="326357905"/>
+						<reference key="destination" ref="686456780"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">22</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">youDeservedIt</string>
 						<reference key="source" ref="686456780"/>
-						<reference key="destination" ref="828038529"/>
+						<reference key="destination" ref="326357905"/>
 					</object>
-					<int key="connectionID">16</int>
+					<int key="connectionID">23</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">yourLifeSucks</string>
 						<reference key="source" ref="686456780"/>
-						<reference key="destination" ref="977145027"/>
+						<reference key="destination" ref="759082047"/>
 					</object>
-					<int key="connectionID">17</int>
+					<int key="connectionID">24</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -189,9 +216,9 @@
 						<reference key="object" ref="686456780"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="326357905"/>
 							<reference ref="129170187"/>
-							<reference ref="828038529"/>
-							<reference ref="977145027"/>
+							<reference ref="759082047"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -201,13 +228,13 @@
 						<reference key="parent" ref="686456780"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">12</int>
-						<reference key="object" ref="977145027"/>
+						<int key="objectID">19</int>
+						<reference key="object" ref="759082047"/>
 						<reference key="parent" ref="686456780"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">13</int>
-						<reference key="object" ref="828038529"/>
+						<int key="objectID">20</int>
+						<reference key="object" ref="326357905"/>
 						<reference key="parent" ref="686456780"/>
 					</object>
 				</object>
@@ -217,10 +244,10 @@
 				<object class="NSArray" key="dict.sortedKeys">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>-2.CustomClassName</string>
-					<string>12.IBPluginDependency</string>
-					<string>12.IBViewBoundsToFrameTransform</string>
-					<string>13.IBPluginDependency</string>
-					<string>13.IBViewBoundsToFrameTransform</string>
+					<string>19.IBPluginDependency</string>
+					<string>19.IBViewBoundsToFrameTransform</string>
+					<string>20.IBPluginDependency</string>
+					<string>20.IBViewBoundsToFrameTransform</string>
 					<string>4.CustomClassName</string>
 					<string>4.IBEditorWindowLastContentRect</string>
 					<string>4.IBPluginDependency</string>
@@ -232,18 +259,18 @@
 					<string>UIResponder</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">
-						<bytes key="NSTransformStruct">P4AAAL+AAABBEAAAwv4AAA</bytes>
+						<bytes key="NSTransformStruct">P4AAAL+AAABAoAAAwwMAAA</bytes>
 					</object>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">
-						<bytes key="NSTransformStruct">P4AAAL+AAABDZAAAwvoAAA</bytes>
+						<bytes key="NSTransformStruct">P4AAAL+AAABDNgAAwwMAAA</bytes>
 					</object>
 					<string>VDMEntryCell</string>
-					<string>{{383, 522}, {313, 140}}</string>
+					<string>{{326, 310}, {313, 140}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">
-						<bytes key="NSTransformStruct">P4AAAL+AAABBoAAAwvAAAA</bytes>
+						<bytes key="NSTransformStruct">P4AAAL+AAAAAAAAAwsQAAA</bytes>
 					</object>
 				</object>
 			</object>
@@ -263,7 +290,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">17</int>
+			<int key="maxID">25</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -282,6 +309,17 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">VDMEntryCell</string>
 					<string key="superclassName">UITableViewCell</string>
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">vote:</string>
+						<string key="NS.object.0">UIButton</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">vote:</string>
+						<object class="IBActionInfo" key="NS.object.0">
+							<string key="name">vote:</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+					</object>
 					<object class="NSMutableDictionary" key="outlets">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
@@ -293,8 +331,8 @@
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>UITextView</string>
-							<string>UILabel</string>
-							<string>UILabel</string>
+							<string>UIButton</string>
+							<string>UIButton</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -313,11 +351,11 @@
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">youDeservedIt</string>
-								<string key="candidateClassName">UILabel</string>
+								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">yourLifeSucks</string>
-								<string key="candidateClassName">UILabel</string>
+								<string key="candidateClassName">UIButton</string>
 							</object>
 						</object>
 					</object>
@@ -435,11 +473,19 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
-					<string key="className">UILabel</string>
+					<string key="className">UIButton</string>
+					<string key="superclassName">UIControl</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBFrameworkSource</string>
+						<string key="minorKey">UIKit.framework/Headers/UIButton.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">UIControl</string>
 					<string key="superclassName">UIView</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBFrameworkSource</string>
-						<string key="minorKey">UIKit.framework/Headers/UILabel.h</string>
+						<string key="minorKey">UIKit.framework/Headers/UIControl.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -508,6 +554,10 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<string key="IBDocument.LastKnownRelativeProjectPath">../../VDM-iPhone.xcodeproj</string>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
+		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<string key="NS.key.0">vote_button_bg.png</string>
+			<string key="NS.object.0">{130, 26}</string>
+		</object>
 		<string key="IBCocoaTouchPluginVersion">141</string>
 	</data>
 </archive>
