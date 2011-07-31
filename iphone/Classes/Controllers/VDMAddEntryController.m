@@ -145,6 +145,18 @@
 		return NO;
 	}
 
+	if (textView.text.length > 2) {
+		char minus1 = [textView.text characterAtIndex:textView.text.length - 1];
+		char minus2 = [textView.text characterAtIndex:textView.text.length - 2];
+		
+		if (textView.text.length > 3 && [[text uppercaseString] isEqualToString:@"M"] 
+			&& (minus1 == 'D' || minus1 == 'd')
+			&& (minus2 == 'V' || minus2 == 'v')) {
+			textView.text = [NSString stringWithFormat:@"%@ VDM", [textView.text substringToIndex:textView.text.length - 3]];
+			return NO;
+		}
+	}
+
 	return textView.text.length < 300 || range.length > 0;
 }
 
