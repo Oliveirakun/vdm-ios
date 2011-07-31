@@ -1,13 +1,17 @@
 #import "VDMFetcher.h"
-#import "ASIHTTPRequest.h"
 #import "VDMEntryXMLParser.h"
 
 @implementation VDMFetcher
+@synthesize running;
 
 -(void) fetchFromURL:(NSURL *) url withCompletionBlock:(VDMFetcherResultAction) resultAction {
-	__block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+	[request clearDelegatesAndCancel];
+	SafeRelease(request);
+
+	request = [[ASIHTTPRequest requestWithURL:url] retain];
 	[request setTimeOutSeconds:30];
 	[request setCompletionBlock:^{
+		running = NO;
 		if ([request error]) {
 			resultAction([[request error] localizedDescription], nil);
 		}
@@ -18,7 +22,14 @@
 			resultAction(nil, entries);
 		}
 	}];
+	running = YES;
 	[request startAsynchronous];
+}
+
+-(void) dealloc {
+	[request clearDelegatesAndCancel];
+	SafeRelease(request);
+	[super dealloc];
 }
 
 @end

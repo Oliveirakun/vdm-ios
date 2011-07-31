@@ -192,13 +192,18 @@
 }
 
 -(void) fetchEntriesXML:(NSString *) path {
-	UIView *loadingView = [self createLoadingView];
-	[self.view addSubviewAnimated:loadingView];
-	
 	if (!vdmFetcher) {
 		vdmFetcher = [[VDMFetcher alloc] init];
 	}
 	
+	if (loadingView) {
+		[loadingView removeFromSuperview];
+		loadingView = nil;
+	}
+	
+	loadingView = [self createLoadingView];
+	[self.view addSubviewAnimated:loadingView];
+		
 	NSURL *url = [[NSString stringWithFormat:@"%@%@%@bypass_mobile=1", [[VDMSettings instance] baseURL], 
 		path, [path contains:@"?"] ? @"&" : @"?"] toURL];
 		
@@ -221,6 +226,7 @@
 			}
 			
 			[loadingView removeFromSuperviewAnimated];
+			loadingView = nil;
 			isFirstLoad = NO;
 			loadingExtra = NO;
 	}];

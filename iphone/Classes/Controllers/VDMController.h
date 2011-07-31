@@ -20,6 +20,7 @@ typedef enum {
 	BOOL isFirstLoad;
 	VDMEntryType currentEntryType;
 	int selectedThemeId;
+	UIView *loadingView;
 }
 
 -(IBAction) recentsDidSelect:(id) sender;
